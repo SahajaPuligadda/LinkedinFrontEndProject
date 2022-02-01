@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-xs-12">
+    <a
+      class="list-group-item clearfix">
+      <span class="pull-left">
+        <img
+          [src]="bio.dpPath" id="circle"
+          alt="{{ bio.name }}"
+          class="img-responsive">
+      </span>
+      <div class="pull-left" style="padding-left: 5%">
+        <h1 class="list-group-item-heading" style="font-weight: bolder; text-transform: capitalize">{{ bio.name }}</h1>
+        <hr>
+        <h4 class="list-group-item-text" style="font-style: italic">{{ bio.tagline }}</h4>
+        <h5 class="list-group-item-text" style="font-family: Serif">{{ bio.workplace }}</h5>
+        <h5 class="list-group-item-text" style="font-family: Serif">{{ bio.location }}</h5>
+      </div>
+    </a>
+    <hr>
+    <a
+      class="list-group-item clearfix">
+      <div class="pull-left" id="about-css">
+        <h2 style="font-weight: bold">About</h2>
+      </div>
+      <div class="pull-right">
+        <button type="button" class="btn btn-link" id="btns">
+          <img
+            src="https://image.flaticon.com/icons/png/512/1239/1239335.png"
+            alt="Edit"
+            class="img-responsive"
+            id="add-img">
+        </button>
+      </div>
+      <div class="pull-left" id="about-css">
+        <h4 class="list-group-item-text">{{ bio.about }}</h4>
+      </div>
+    </a>
+    <hr>
+  </div>
+</div>
+
+

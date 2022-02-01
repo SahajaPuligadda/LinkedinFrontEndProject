@@ -1,0 +1,9 @@
+#navbar-img{
+  display: block;
+  height: 25px;
+  margin: auto;
+}
+
+li {
+  display:inline-block;
+}
