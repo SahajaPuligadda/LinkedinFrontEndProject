@@ -1,12 +1,14 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
+<app-header></app-header>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-inuserbio *ngIf="loadedFeature === 'intro'"></app-inuserbio>
-      <app-education-list *ngIf="loadedFeature === 'edu'"></app-education-list>
-      <app-experience-list *ngIf="loadedFeature === 'experience'"></app-experience-list>
-      <app-skills-list *ngIf="loadedFeature === 'skills'"></app-skills-list>
+<!--      <app-login></app-login>-->
+<!--      <app-inuserbio *ngIf="loadedFeature === 'intro'"></app-inuserbio>-->
+<!--      <app-education-list *ngIf="loadedFeature === 'edu'"></app-education-list>-->
+<!--      <app-experience-list *ngIf="loadedFeature === 'experience'"></app-experience-list>-->
+<!--      <app-skills-list *ngIf="loadedFeature === 'skills'"></app-skills-list>-->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

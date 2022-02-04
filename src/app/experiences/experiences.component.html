@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12" id="about-css">
+    <app-experience-list></app-experience-list>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12" id="about-css">
+    <app-experience-detail
+      *ngIf="selectedExp; else infoText"
+      [exp]="selectedExp"></app-experience-detail>
+    <ng-template #infoText>
+      <h3>Please select an experience to view details!!</h3>
+    </ng-template>
+    <hr>
+  </div>
+</div>
+

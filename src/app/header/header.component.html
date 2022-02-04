@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse ">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">
+      <a routerLink="/" class="navbar-brand">
         <img
           [src]= "linkedinlogo"
           alt="Linkedin"
@@ -23,15 +23,33 @@
 
     <div class="navbar-default">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" (click)="onSelect('intro')">
-          Introduction</a></li>
-        <li><a href="#" (click)="onSelect('edu')">
-          Education</a></li>
-        <li><a href="#" (click)="onSelect('experience')">
-          Experience</a></li>
-        <li><a href="#" (click)="onSelect('skills')">
-          Skills</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>LogOut</a></li>
+        <li
+          routerLinkActive="active">
+          <a routerLink="/about">
+          Introduction</a>
+        </li>
+        <li
+          routerLinkActive="active">
+          <a routerLink="/education">
+          Education</a>
+        </li>
+        <li
+          routerLinkActive="active">
+          <a routerLink="/experience">
+          Experience</a>
+        </li>
+        <li
+          routerLinkActive="active">
+          <a routerLink="/skills">
+          Skills</a>
+        </li>
+        <li
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="/">
+            <span class="glyphicon glyphicon-log-out">
+            </span>
+            LogOut</a>
+        </li>
 <!--        <li class="dropdown">-->
 <!--          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Me-->
 <!--            <span class="caret"></span></a>-->

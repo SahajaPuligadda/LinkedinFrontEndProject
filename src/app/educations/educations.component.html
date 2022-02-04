@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12" id="about-css">
+    <app-education-list></app-education-list>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12" id="about-css">
+    <app-education-detail
+      *ngIf="selectedEdu; else infoText"
+      [edu]="selectedEdu"></app-education-detail>
+    <ng-template #infoText>
+      <h3>Please select an education to view details!!</h3>
+    </ng-template>
+    <hr>
+  </div>
+</div>
+

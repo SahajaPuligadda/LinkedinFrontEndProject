@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import {Experience} from "./experience.model";
+import {EventEmitter} from "@angular/core";
 
-@Component({
-  selector: 'app-experience-list',
-  templateUrl: './experience-list.component.html',
-  styleUrls: ['./experience-list.component.css']
-})
-export class ExperienceListComponent implements OnInit {
-  experiences: Experience[] = [
+export class ExperienceService {
+  expSelected = new EventEmitter<Experience>();
+
+  private experiences: Experience[] = [
     new Experience('SDE Intern', 'Internship',
       'Kodem Legal Technologies', 'Hyderabad, Telangana, India',
       'Feb 2022', 'Jul 2022', ''),
@@ -16,9 +13,7 @@ export class ExperienceListComponent implements OnInit {
       'Feb 2021', 'Feb 2022', '')
   ];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  getExperiences() {
+    return this.experiences.slice();
   }
-
 }
