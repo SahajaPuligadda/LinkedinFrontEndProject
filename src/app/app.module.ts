@@ -11,7 +11,6 @@ import { ExperienceItemComponent } from './experiences/experience-list/experienc
 import { SkillsListComponent } from './skills-list/skills-list.component';
 import { SkillItemComponent } from './skills-list/skill-item/skill-item.component';
 import {FormsModule} from "@angular/forms";
-import { HomeComponent } from './home/home.component';
 import {LoginComponent} from "./login/login.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -19,6 +18,10 @@ import { ExperienceDetailComponent } from './experiences/experience-detail/exper
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { EducationsComponent } from './educations/educations.component';
 import { EducationDetailComponent } from './educations/education-detail/education-detail.component';
+import { EducationStartComponent } from './educations/education-start/education-start.component';
+import { ExperienceStartComponent } from './experiences/experience-start/experience-start.component';
+import { ExperienceEditComponent } from './experiences/experience-edit/experience-edit.component';
+import { EducationEditComponent } from './educations/education-edit/education-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,15 @@ import { EducationDetailComponent } from './educations/education-detail/educatio
     SkillsListComponent,
     SkillItemComponent,
     LoginComponent,
-    HomeComponent,
     PageNotFoundComponent,
     ExperienceDetailComponent,
     ExperiencesComponent,
     EducationsComponent,
-    EducationDetailComponent
+    EducationDetailComponent,
+    EducationStartComponent,
+    ExperienceStartComponent,
+    ExperienceEditComponent,
+    EducationEditComponent
   ],
   imports: [
     BrowserModule,

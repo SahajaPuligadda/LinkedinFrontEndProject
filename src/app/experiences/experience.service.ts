@@ -16,4 +16,8 @@ export class ExperienceService {
   getExperiences() {
     return this.experiences.slice();
   }
+
+  getExperience(index: number) {
+    return this.experiences[index];
+  }
 }

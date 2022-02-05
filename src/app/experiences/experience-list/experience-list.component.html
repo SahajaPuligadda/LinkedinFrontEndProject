@@ -6,7 +6,7 @@
         <h2 style="font-weight: bold">Experience</h2>
       </div>
       <div class="pull-right">
-        <button type="button" class="btn btn-link" id="btns">
+        <button type="button" class="btn btn-link" id="btns" (click)="onNewExperience()">
           <img
             src="https://image.flaticon.com/icons/png/512/1237/1237946.png"
             alt="Add"
@@ -15,8 +15,9 @@
         </button>
       </div>
     </a>
-    <app-experience-item *ngFor="let expEl of experiences"
-                         [exp]="expEl"></app-experience-item>
+    <app-experience-item *ngFor="let expEl of experiences; let i = index"
+                         [exp]="expEl"
+                         [index]="i"></app-experience-item>
   </div>
 </div>
 

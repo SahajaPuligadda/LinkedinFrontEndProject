@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Experience} from "../../experience.model";
-import {ExperienceService} from "../../experience.service";
 
 @Component({
   selector: 'app-experience-item',
@@ -9,14 +8,9 @@ import {ExperienceService} from "../../experience.service";
 })
 export class ExperienceItemComponent implements OnInit {
   @Input() exp: Experience;
-
-  constructor(private experienceService: ExperienceService) { }
+  @Input() index: number;
 
   ngOnInit(): void {
-  }
-
-  onSelected() {
-    this.experienceService.expSelected.emit(this.exp);
   }
 
 }

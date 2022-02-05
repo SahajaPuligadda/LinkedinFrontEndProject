@@ -1,6 +1,8 @@
 <a
   class="list-group-item clearfix"
-  (click)="onSelected()"
+  [routerLink]="[index]"
+  [routerLinkActiveOptions]="{exact: true}"
+  routerLinkActive="active"
 style="cursor: pointer;">
   <div class="pull-left">
     <h3 class="list-group-item-heading" style="font-weight: bolder">{{ exp.title }}</h3>
@@ -16,13 +18,4 @@ style="cursor: pointer;">
   <!--          class="img-responsive"-->
   <!--          style="max-height: 50px;">-->
   <!--      </span>-->
-  <div class="pull-right">
-    <button type="button" class="btn btn-link" id="btns">
-      <img
-        src="https://image.flaticon.com/icons/png/512/1239/1239335.png"
-        alt="Edit"
-        class="img-responsive"
-        id="add-img">
-    </button>
-  </div>
 </a>

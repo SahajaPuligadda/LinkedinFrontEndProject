@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Education} from "../education.model";
+import {EducationService} from "../education.service";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-education-detail',
@@ -7,11 +9,24 @@ import {Education} from "../education.model";
   styleUrls: ['./education-detail.component.css']
 })
 export class EducationDetailComponent implements OnInit {
-  @Input() edu: Education;
+  edu: Education;
+  id: number;
 
-  constructor() { }
+  constructor(private educationService: EducationService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        this.edu = this.educationService.getEducation(this.id);
+      }
+    );
+  }
+
+  onEditEducation() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
 }

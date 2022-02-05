@@ -19,4 +19,8 @@ export class EducationService {
   getEducations() {
     return this.educations.slice();
   }
+
+  getEducation(index: number) {
+    return this.educations[index];
+  }
 }
