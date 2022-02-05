@@ -10,7 +10,7 @@ import { ExperienceListComponent } from './experiences/experience-list/experienc
 import { ExperienceItemComponent } from './experiences/experience-list/experience-item/experience-item.component';
 import { SkillsListComponent } from './skills-list/skills-list.component';
 import { SkillItemComponent } from './skills-list/skill-item/skill-item.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -22,6 +22,7 @@ import { EducationStartComponent } from './educations/education-start/education-
 import { ExperienceStartComponent } from './experiences/experience-start/experience-start.component';
 import { ExperienceEditComponent } from './experiences/experience-edit/experience-edit.component';
 import { EducationEditComponent } from './educations/education-edit/education-edit.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,12 +44,14 @@ import { EducationEditComponent } from './educations/education-edit/education-ed
     EducationStartComponent,
     ExperienceStartComponent,
     ExperienceEditComponent,
-    EducationEditComponent
+    EducationEditComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
