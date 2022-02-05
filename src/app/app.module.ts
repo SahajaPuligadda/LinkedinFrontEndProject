@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,7 +23,7 @@ import { EducationStartComponent } from './educations/education-start/education-
 import { ExperienceStartComponent } from './experiences/experience-start/experience-start.component';
 import { ExperienceEditComponent } from './experiences/experience-edit/experience-edit.component';
 import { EducationEditComponent } from './educations/education-edit/education-edit.component';
-import { RegisterComponent } from './register/register.component';
+// import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +46,12 @@ import { RegisterComponent } from './register/register.component';
     ExperienceStartComponent,
     ExperienceEditComponent,
     EducationEditComponent,
-    RegisterComponent
+    // RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],

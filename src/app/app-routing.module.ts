@@ -12,13 +12,13 @@ import {ExperienceStartComponent} from "./experiences/experience-start/experienc
 import {ExperienceDetailComponent} from "./experiences/experience-detail/experience-detail.component";
 import {EducationEditComponent} from "./educations/education-edit/education-edit.component";
 import {ExperienceEditComponent} from "./experiences/experience-edit/experience-edit.component";
-import {RegisterComponent} from "./register/register.component";
+// import {RegisterComponent} from "./register/register.component";
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  // {path: 'register', component: RegisterComponent},
   {path: 'about', component: InuserbioComponent},
   {path: 'educations', component: EducationsComponent, children: [
       {path: '', component: EducationStartComponent},

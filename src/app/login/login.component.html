@@ -1,6 +1,8 @@
 <div class="row formCss">
   <div class="col-xs-12">
-    <h2 style="color: white;">Welcome to Linkedin Page! Login to your account!</h2>
+    <h2 style="color: white;">
+      Welcome to Linkedin Page! {{ isLoginMode ? 'Login to your account!' : 'Register here!' }}
+      </h2>
     <hr>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="row">
@@ -8,10 +10,11 @@
           <div class="form-group">
             <label for="email" style="color: white;">Email</label>
             <input
-              type="text"
+              type="email"
               id="email"
               formControlName="email"
-              class="form-control">
+              class="form-control"
+            name="email">
             <span
               *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
               class="help-block">Invalid Email!</span>
@@ -26,7 +29,8 @@
               type="password"
               id="password"
               formControlName="password"
-              class="form-control">
+              class="form-control"
+            name="password">
             <span
               *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
               class="help-block">Password is required!</span>
@@ -38,9 +42,9 @@
           <button
             type="submit"
             class="btn btn-default"
-            [disabled]="!loginForm.valid" style="margin-right: 5%">Login</button>
+            [disabled]="!loginForm.valid" style="margin-right: 5%">{{ isLoginMode ? 'Login' : 'Register' }}</button>
           <button type="button" class="btn btn-default"
-                  routerLink="/register">Register</button>
+                  (click)="onSwitchMode()">{{ !isLoginMode ? 'Login' : 'Register' }}</button>
         </div>
       </div>
       <div class="row">
