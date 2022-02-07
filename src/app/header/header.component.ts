@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Input() uid: number;
+
   linkedinlogo = 'https://image.flaticon.com/icons/png/512/408/408703.png';
   // @Output() featureSelected = new EventEmitter<string>();
   //
@@ -13,9 +16,12 @@ export class HeaderComponent implements OnInit {
   //   this.featureSelected.emit(feature);
   // }
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let id = this.route.snapshot.params.uid;
+    // console.log(id);
+    this.uid = id;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {UserValidationService} from "../user-validation.service";
@@ -10,6 +10,8 @@ import {User} from "../user.model";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Output() uid: number;
+
   isLoginMode = true;
   loginForm: FormGroup;
   error: boolean;
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
           console.log("Logged in properly!");
           console.log(data);
           console.log(data.id);
+          this.uid = data.id;
           this.error = true;
           this.message = "Logged in Successfully!";
           this.router.navigate(['../' + data.id + '/about'], {relativeTo: this.route});
@@ -50,6 +53,7 @@ export class LoginComponent implements OnInit {
           error => {
           this.error = true;
           console.log("Access Denied!");
+          console.log(error);
           this.message = "Invalid Credentials";
           });
     }
@@ -62,7 +66,7 @@ export class LoginComponent implements OnInit {
         .subscribe(data => {
             this.error = true;
             console.log("User is registered");
-            this.message = "User is registered successfully!";
+            this.message = "User is registered successfully! Login to your account!";
           },
           error => {
             this.error = true;

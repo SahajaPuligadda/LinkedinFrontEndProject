@@ -30,27 +30,23 @@
 <!--        </li>-->
         <li
           routerLinkActive="active">
-          <a routerLink="/about">
-          Introduction</a>
+          <a [routerLink]="['/', uid, 'about']">Introduction</a>
         </li>
         <li
           routerLinkActive="active">
-          <a routerLink="/educations">
-          Education</a>
+          <a [routerLink]="['/', uid, 'educations']">Education</a>
         </li>
         <li
           routerLinkActive="active">
-          <a routerLink="/experiences">
-          Experience</a>
+          <a [routerLink]="['/', uid, 'experiences']">Experience</a>
         </li>
         <li
           routerLinkActive="active">
-          <a routerLink="/skills">
-          Skills</a>
+          <a [routerLink]="['/', uid, 'skills']">Skills</a>
         </li>
         <li
           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a routerLink="/">
+          <a routerLink="/login">
             <span class="glyphicon glyphicon-log-out">
             </span>
             LogOut</a>

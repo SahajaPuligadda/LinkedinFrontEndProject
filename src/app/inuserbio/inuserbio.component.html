@@ -10,6 +10,15 @@
           alt="{{ bio.name }}"
           class="img-responsive">
       </span>
+      <div class="pull-right">
+        <button type="button" class="btn btn-link" id="btns">
+          <img
+            src="https://image.flaticon.com/icons/png/512/1239/1239335.png"
+            alt="Edit"
+            class="img-responsive"
+            id="add-img">
+        </button>
+      </div>
       <div class="pull-left" style="padding-left: 5%">
         <h1 class="list-group-item-heading" style="font-weight: bolder; text-transform: capitalize">{{ bio.name }}</h1>
         <hr>
@@ -33,6 +42,9 @@
             id="add-img">
         </button>
       </div>
+    </a>
+    <a
+      class="list-group-item clearfix">
       <div class="pull-left" id="about-css">
         <h4 class="list-group-item-text">{{ bio.about }}</h4>
       </div>
