@@ -19,21 +19,21 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   // {path: 'register', component: RegisterComponent},
-  {path: 'about', component: InuserbioComponent},
-  {path: 'educations', component: EducationsComponent, children: [
+  {path: 'not-found', component: PageNotFoundComponent},
+  {path: ':uid/about', component: InuserbioComponent},
+  {path: ':uid/educations', component: EducationsComponent, children: [
       {path: '', component: EducationStartComponent},
       {path: 'new', component: EducationEditComponent},
       {path: ':id', component: EducationDetailComponent},
       {path: ':id/edit', component: EducationEditComponent}
     ]},
-  {path: 'experiences', component: ExperiencesComponent, children: [
+  {path: ':uid/experiences', component: ExperiencesComponent, children: [
       {path: '', component: ExperienceStartComponent},
       {path: 'new', component: ExperienceEditComponent},
       {path: ':id', component: ExperienceDetailComponent},
       {path: ':id/edit', component: ExperienceEditComponent}
     ]},
-  {path: 'skills', component: SkillsListComponent},
-  {path: 'not-found', component: PageNotFoundComponent},
+  {path: ':uid/skills', component: SkillsListComponent},
   {path: '**', redirectTo: '/not-found'} //catch all unknown routes- at last
 ];
 

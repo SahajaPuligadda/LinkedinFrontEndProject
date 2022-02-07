@@ -9,7 +9,4 @@ export class AppComponent {
   title: "linkedinfrontend";
   loadedFeature = 'intro';
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
 }
