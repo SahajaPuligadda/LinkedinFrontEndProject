@@ -1,15 +1,5 @@
 <a
   class="list-group-item clearfix">
-  <div class="pull-left">
-    <h3 class="list-group-item-heading" style="font-weight: bolder">Title: {{ exp.title }}</h3>
-    <h4 class="list-group-item-text" style="font-weight: bold">Company Name: {{ exp.company }}</h4>
-    <h4 class="list-group-item-text">Employment Type: {{ exp.empType }}</h4>
-    <h4 class="list-group-item-text">Location: {{ exp.location }}</h4>
-    <h4 class="list-group-item-text">Start Date: {{ exp.startDate }}</h4>
-    <h4 class="list-group-item-text">End Date: {{ exp.endDate }}</h4>
-    <h4 class="list-group-item-text">Description: {{ exp.description }}</h4>
-  </div>
-
   <div class="pull-right">
     <button type="button" class="btn btn-link" id="btns" (click)="onEditExperience()">
       <img
@@ -26,4 +16,15 @@
         id="add-img">
     </button>
   </div>
+
+  <div class="pull-left">
+    <h3 class="list-group-item-heading" style="font-weight: bolder">Title: {{ exp.title }}</h3>
+    <h4 class="list-group-item-text" style="font-weight: bold">Company Name: {{ exp.company }}</h4>
+    <h4 class="list-group-item-text">Employment Type: {{ exp.empType }}</h4>
+    <h4 class="list-group-item-text">Location: {{ exp.location }}</h4>
+    <h4 class="list-group-item-text">Start Date: {{ exp.startDate }}</h4>
+    <h4 class="list-group-item-text">End Date: {{ exp.endDate }}</h4>
+    <h4 class="list-group-item-text">Description: {{ exp.description }}</h4>
+  </div>
+
 </a>

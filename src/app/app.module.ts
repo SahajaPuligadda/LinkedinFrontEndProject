@@ -23,6 +23,7 @@ import { EducationStartComponent } from './educations/education-start/education-
 import { ExperienceStartComponent } from './experiences/experience-start/experience-start.component';
 import { ExperienceEditComponent } from './experiences/experience-edit/experience-edit.component';
 import { EducationEditComponent } from './educations/education-edit/education-edit.component';
+import {DatePipe} from "@angular/common";
 // import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -55,7 +56,7 @@ import { EducationEditComponent } from './educations/education-edit/education-ed
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

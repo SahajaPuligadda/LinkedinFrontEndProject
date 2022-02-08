@@ -9,6 +9,7 @@ import {Education} from "../../education.model";
 export class EducationItemComponent implements OnInit {
   @Input() edu: Education;
   @Input() index: number;
+  @Input() uid: number;
 
   ngOnInit(): void {
   }

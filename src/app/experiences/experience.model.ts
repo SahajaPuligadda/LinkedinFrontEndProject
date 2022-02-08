@@ -1,5 +1,6 @@
 
 export class Experience {
+  public id: number;
   public title: string;
   public empType: string;
   public company: string;

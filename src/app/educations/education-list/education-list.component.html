@@ -15,9 +15,9 @@
         </button>
       </div>
     </a>
-    <app-education-item *ngFor="let eduEl of educations; let i = index"
+    <app-education-item *ngFor="let eduEl of educations"
                         [edu]="eduEl"
-                        [index]="i"></app-education-item>
+                        [index]="eduEl.id" [uid]="id"></app-education-item>
   </div>
 </div>
 

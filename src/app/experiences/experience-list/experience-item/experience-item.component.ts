@@ -9,6 +9,7 @@ import {Experience} from "../../experience.model";
 export class ExperienceItemComponent implements OnInit {
   @Input() exp: Experience;
   @Input() index: number;
+  @Input() uid: number;
 
   ngOnInit(): void {
   }

@@ -15,9 +15,9 @@
         </button>
       </div>
     </a>
-    <app-experience-item *ngFor="let expEl of experiences; let i = index"
+    <app-experience-item *ngFor="let expEl of experiences"
                          [exp]="expEl"
-                         [index]="i"></app-experience-item>
+                         [index]="expEl.id" [uid]="id"></app-experience-item>
   </div>
 </div>
 
