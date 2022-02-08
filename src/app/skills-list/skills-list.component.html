@@ -8,7 +8,7 @@
         <h2 style="font-weight: bold">Skills</h2>
       </div>
       <div class="pull-right">
-        <button type="button" class="btn btn-link" id="btns">
+        <button type="button" class="btn btn-link" id="btns" (click)="onNewSkill()">
           <img
             src="https://image.flaticon.com/icons/png/512/1237/1237946.png"
             alt="Add"
@@ -19,8 +19,10 @@
     </a>
     <app-skill-item
       *ngFor="let skillEl of skills"
-    [skill] = "skillEl"></app-skill-item>
+    [skill] = "skillEl"
+    (isSkillDeleted)="whenSkillDeleted($event)"></app-skill-item>
     <hr>
+<!--    <router-outlet></router-outlet>-->
   </div>
 </div>
 

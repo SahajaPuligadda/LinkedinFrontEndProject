@@ -10,7 +10,7 @@ import {DatePipe} from "@angular/common";
   styleUrls: ['./education-detail.component.css']
 })
 export class EducationDetailComponent implements OnInit {
-  edu: Education;
+  edu: Education = new Education('','','','','', 0.0, '');
   // id: number;
 
   constructor(private educationService: EducationService,
@@ -39,6 +39,7 @@ export class EducationDetailComponent implements OnInit {
                 this.datepipe.transform(data.endDate, 'yyyy-MM-dd');
               console.log("angular single education");
               console.log(this.edu);
+              document.getElementById("education_details").scrollIntoView({behavior: 'smooth'});
             },
             error => {
               console.log("Could not load single education!");

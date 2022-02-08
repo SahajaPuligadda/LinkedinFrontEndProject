@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -16,12 +16,18 @@ export class HeaderComponent implements OnInit {
   //   this.featureSelected.emit(feature);
   // }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params.uid;
     // console.log(id);
     this.uid = id;
+  }
+
+  onLogout() {
+    window.alert("Logged out successfully!");
+    this.router.navigateByUrl("/login");
   }
 
 }

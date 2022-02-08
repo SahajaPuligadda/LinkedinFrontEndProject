@@ -12,7 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class InuserbioComponent implements OnInit {
   @Input() uid: number;
 
-  bio: Bio;
+  bio: Bio = new Bio('', '', '','','','');
 
   constructor(private bioService: BioService,
               private route: ActivatedRoute) { }
@@ -24,10 +24,11 @@ export class InuserbioComponent implements OnInit {
     // console.log(this.bio);
     this.bioService.getBio(id)
       .subscribe(data => {
-          // console.log("Profile details!");
-          // console.log(data);
+          console.log("Profile details backend!");
+          console.log(data);
           this.bio = data;
           this.bio.dpPath = data.photo;
+          this.bio.name = data.name;
           console.log("angular bio");
           console.log(this.bio);
         },

@@ -12,6 +12,7 @@ import {ExperienceStartComponent} from "./experiences/experience-start/experienc
 import {ExperienceDetailComponent} from "./experiences/experience-detail/experience-detail.component";
 import {EducationEditComponent} from "./educations/education-edit/education-edit.component";
 import {ExperienceEditComponent} from "./experiences/experience-edit/experience-edit.component";
+import {SkillNewComponent} from "./skills-list/skill-new/skill-new.component";
 // import {RegisterComponent} from "./register/register.component";
 
 
@@ -34,12 +35,16 @@ const appRoutes: Routes = [
       {path: ':id/edit', component: ExperienceEditComponent}
     ]},
   {path: ':uid/skills', component: SkillsListComponent},
+  {path: ':uid/skills/new', component: SkillNewComponent},
   {path: '**', redirectTo: '/not-found'} //catch all unknown routes- at last
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,
+      {
+        onSameUrlNavigation: 'reload'
+      })
   ],
   exports: [RouterModule]
 })

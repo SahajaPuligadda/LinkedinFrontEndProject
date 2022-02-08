@@ -7,7 +7,7 @@ export class Bio {
   public dpPath: string;
   public about: string;
 
-  constructor(name: string, tag: string, workplace: string, location: string, dpPath: string, about: string) {
+  public constructor(name: string, tag: string, workplace: string, location: string, dpPath: string, about: string) {
     this.name = name;
     this.tagline = tag;
     this.workplace = workplace;

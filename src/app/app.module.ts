@@ -24,6 +24,7 @@ import { ExperienceStartComponent } from './experiences/experience-start/experie
 import { ExperienceEditComponent } from './experiences/experience-edit/experience-edit.component';
 import { EducationEditComponent } from './educations/education-edit/education-edit.component';
 import {DatePipe} from "@angular/common";
+import { SkillNewComponent } from './skills-list/skill-new/skill-new.component';
 // import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -47,6 +48,8 @@ import {DatePipe} from "@angular/common";
     ExperienceStartComponent,
     ExperienceEditComponent,
     EducationEditComponent,
+    SkillNewComponent
+    // SkillStartComponent,
     // RegisterComponent
   ],
   imports: [

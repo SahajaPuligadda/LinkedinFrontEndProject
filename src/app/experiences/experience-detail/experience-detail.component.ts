@@ -10,7 +10,7 @@ import {DatePipe} from "@angular/common";
   styleUrls: ['./experience-detail.component.css']
 })
 export class ExperienceDetailComponent implements OnInit {
-  exp: Experience;
+  exp: Experience = new Experience('','','','','', '', '');
   id: number;
 
   constructor(private experienceService: ExperienceService,
@@ -39,6 +39,7 @@ export class ExperienceDetailComponent implements OnInit {
                 this.datepipe.transform(data.endDate, 'yyyy-MM-dd');
               console.log("angular single experience");
               console.log(this.exp);
+              document.getElementById("experience_details").scrollIntoView({behavior: 'smooth'});
             },
             error => {
               console.log("Could not load single experience!");
