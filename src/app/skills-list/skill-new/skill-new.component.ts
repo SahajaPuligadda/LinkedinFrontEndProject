@@ -1,11 +1,8 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../user.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserValidationService} from "../../user-validation.service";
 import {Skill} from "../skill.model";
 import {SkillService} from "../skill.service";
-import {SkillsListComponent} from "../skills-list.component";
 
 @Component({
   selector: 'app-skill-new',
@@ -13,8 +10,6 @@ import {SkillsListComponent} from "../skills-list.component";
   styleUrls: ['./skill-new.component.css']
 })
 export class SkillNewComponent implements OnInit {
-  // isSkillCreated: boolean;
-
   newSkillForm: FormGroup;
   error: boolean;
   name: string;
@@ -30,8 +25,9 @@ export class SkillNewComponent implements OnInit {
   }
 
   onSubmit() {
-    let temp = this.router.url.split('/');
-    let uid = +temp[1];
+    let uid = this.route.snapshot.params.uid;
+    // console.log("SKill params:");
+    // console.log(this.route.snapshot.params.uid);
     console.log(this.newSkillForm.value);
     this.skill = new Skill(this.newSkillForm.value['name']);
     this.skillService.createSkill(uid, this.skill)
@@ -50,6 +46,11 @@ export class SkillNewComponent implements OnInit {
           this.message = "Skill already exists!";
         });
     this.newSkillForm.reset();
+  }
+
+  onBackSkill() {
+    this.newSkillForm.reset();
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {

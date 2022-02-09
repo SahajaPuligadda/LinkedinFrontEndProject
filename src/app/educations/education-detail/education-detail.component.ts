@@ -24,7 +24,7 @@ export class EducationDetailComponent implements OnInit {
         let temp = this.router.url.split('/');
         let uid = +temp[1];
         let eid = this.route.snapshot.params.id;
-        //console.log(this.router.url);
+        // console.log(this.route.snapshot.params);
         console.log("uid: " + uid);
         console.log("eid: " + eid);
         this.educationService.getEducation(uid, eid)
