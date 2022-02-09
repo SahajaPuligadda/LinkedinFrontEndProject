@@ -3,9 +3,11 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../user.model";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
+import {Skill} from "../skills-list/skill.model";
 
 @Injectable({providedIn: "root"})
 export class BioService {
+  bio: Bio;
   // bio: Bio[] = [new Bio('Sahaja Puligadda',
   //   'Student at Vasavi College of Engineering',
   //   'Vasavi College of Engineering',
@@ -42,5 +44,17 @@ export class BioService {
   // getBio(id: number) {
   //   return this.bio[id];
   // }
+
+  updateAbout(uid: number, about: string): Observable<any> {
+    // const config = { headers: {'Content-Type': 'application/json'} };
+    return this.http.put<any>(
+      this.url_common + '/' + uid + '/about/edit-about',
+      new Bio('','','','','', about));
+  }
+
+  updateBio(uid: number, bio: Bio): Observable<any> {
+    return this.http.put<any>(
+      this.url_common + '/' + uid + '/about/edit-bio', bio);
+  }
 
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Bio } from './bio.model';
 import {BioService} from "./bio.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-inuserbio',
@@ -15,7 +15,8 @@ export class InuserbioComponent implements OnInit {
   bio: Bio = new Bio('', '', '','','','');
 
   constructor(private bioService: BioService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(){
     let id = this.route.snapshot.params.uid;
@@ -27,7 +28,7 @@ export class InuserbioComponent implements OnInit {
           console.log("Profile details backend!");
           console.log(data);
           this.bio = data;
-          this.bio.dpPath = data.photo;
+          this.bio.photo = data.photo;
           this.bio.name = data.name;
           console.log("angular bio");
           console.log(this.bio);
@@ -36,6 +37,15 @@ export class InuserbioComponent implements OnInit {
           console.log("Could not load profile details!");
           console.log(error);
         });
+  }
+
+  onEditBio() {
+    this.router.navigate(['edit-bio'], {relativeTo: this.route});
+  }
+
+  onEditAbout() {
+    // console.log("this.bio.about: "+this.bio.about);
+    this.router.navigate(['edit-about'], {relativeTo: this.route});
   }
 
 }

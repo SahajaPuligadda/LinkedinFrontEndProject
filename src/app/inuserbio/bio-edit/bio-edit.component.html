@@ -1,0 +1,118 @@
+<app-header></app-header>
+<div class="row formCss">
+  <div class="col-xs-12">
+    <h3 style="color: white">
+      Edit Bio Details!
+    </h3>
+    <form [formGroup]="editBioForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name" style="color: white;">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control"
+              name="name">
+            <span
+              *ngIf="!editBioForm.get('name').valid && editBioForm.get('name').touched"
+              class="help-block">Enter valid full name!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="tagline" style="color: white;">Headline</label>
+            <input
+              type="text"
+              id="tagline"
+              formControlName="tagline"
+              class="form-control"
+              name="tagline">
+            <span
+              *ngIf="!editBioForm.get('tagline').valid && editBioForm.get('tagline').touched"
+              class="help-block">Enter valid headline!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="workplace" style="color: white;">Current Workplace</label>
+            <input
+              type="text"
+              id="workplace"
+              formControlName="workplace"
+              class="form-control"
+              name="workplace">
+            <span
+              *ngIf="!editBioForm.get('workplace').valid && editBioForm.get('workplace').touched"
+              class="help-block">Enter valid workplace!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="location" style="color: white;">Location</label>
+            <input
+              type="text"
+              id="location"
+              formControlName="location"
+              class="form-control"
+              name="location">
+            <span
+              *ngIf="!editBioForm.get('location').valid && editBioForm.get('location').touched"
+              class="help-block">Enter valid location!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="photo" style="color: white;">Photo URL</label>
+            <input
+              type="text"
+              id="photo"
+              formControlName="photo"
+              class="form-control"
+              name="photo"
+              #imagePath>
+            <span
+              *ngIf="!editBioForm.get('photo').valid && editBioForm.get('photo').touched"
+              class="help-block">Enter valid photo URL!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive" id="circle"
+               style="align-items: center; margin-left: 10%; margin-right: 5%;">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <button
+            type="submit"
+            class="btn btn-default"
+            [disabled]="!editBioForm.valid" style="margin-right: 5%">Update</button>
+          <button
+            type="button"
+            class="btn btn-default" style="margin-right: 5%"
+            (click)="onBackBio()">Back</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h3>
+             <span *ngIf="error"
+                   class="help-block">{{ message }}</span>
+          </h3>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

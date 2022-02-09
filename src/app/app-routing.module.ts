@@ -13,6 +13,8 @@ import {ExperienceDetailComponent} from "./experiences/experience-detail/experie
 import {EducationEditComponent} from "./educations/education-edit/education-edit.component";
 import {ExperienceEditComponent} from "./experiences/experience-edit/experience-edit.component";
 import {SkillNewComponent} from "./skills-list/skill-new/skill-new.component";
+import {BioEditComponent} from "./inuserbio/bio-edit/bio-edit.component";
+import {AboutEditComponent} from "./inuserbio/about-edit/about-edit.component";
 // import {RegisterComponent} from "./register/register.component";
 
 
@@ -22,6 +24,8 @@ const appRoutes: Routes = [
   // {path: 'register', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: ':uid/about', component: InuserbioComponent},
+  {path: ':uid/about/edit-bio', component: BioEditComponent},
+  {path: ':uid/about/edit-about', component: AboutEditComponent},
   {path: ':uid/educations', component: EducationsComponent, children: [
       {path: '', component: EducationStartComponent},
       {path: 'new', component: EducationEditComponent},

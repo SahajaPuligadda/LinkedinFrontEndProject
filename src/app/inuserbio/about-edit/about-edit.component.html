@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="row formCss">
+  <div class="col-xs-12">
+    <h3 style="color: white">
+      Edit About!
+    </h3>
+    <form [formGroup]="editAboutForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="about" style="color: white;">About</label>
+            <textarea
+              type="text"
+              id="about"
+              formControlName="about"
+              class="md-textarea md-textarea-auto form-control"
+              rows="10"
+              columns="20"
+              name="about">
+            </textarea>
+            <span
+              *ngIf="!editAboutForm.get('about').valid && editAboutForm.get('about').touched"
+              class="help-block">Enter valid summary!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <button
+            type="submit"
+            class="btn btn-default"
+            [disabled]="!editAboutForm.valid" style="margin-right: 5%">Update</button>
+          <button
+            type="button"
+            class="btn btn-default" style="margin-right: 5%"
+            (click)="onBackAbout()">Back</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h3>
+             <span *ngIf="error"
+                   class="help-block">{{ message }}</span>
+          </h3>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

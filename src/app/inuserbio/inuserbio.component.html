@@ -6,15 +6,15 @@
       class="list-group-item clearfix">
       <span class="pull-left">
         <img
-          [src]="bio.dpPath" id="circle"
+          [src]="bio.photo" id="circle"
           alt="{{ bio.name }}"
           class="img-responsive">
       </span>
       <div class="pull-right">
-        <button type="button" class="btn btn-link" id="btns">
+        <button type="button" class="btn btn-link" id="btns" (click)="onEditBio()">
           <img
             src="https://image.flaticon.com/icons/png/512/1239/1239335.png"
-            alt="Edit"
+            alt="Edit Bio"
             class="img-responsive"
             id="add-img">
         </button>
@@ -34,10 +34,10 @@
         <h2 style="font-weight: bold">About</h2>
       </div>
       <div class="pull-right">
-        <button type="button" class="btn btn-link" id="btns">
+        <button type="button" class="btn btn-link" id="btns" (click)="onEditAbout()">
           <img
             src="https://image.flaticon.com/icons/png/512/1239/1239335.png"
-            alt="Edit"
+            alt="Edit About"
             class="img-responsive"
             id="add-img">
         </button>

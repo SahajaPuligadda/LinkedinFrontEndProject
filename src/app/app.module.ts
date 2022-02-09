@@ -25,6 +25,8 @@ import { ExperienceEditComponent } from './experiences/experience-edit/experienc
 import { EducationEditComponent } from './educations/education-edit/education-edit.component';
 import {DatePipe} from "@angular/common";
 import { SkillNewComponent } from './skills-list/skill-new/skill-new.component';
+import { BioEditComponent } from './inuserbio/bio-edit/bio-edit.component';
+import { AboutEditComponent } from './inuserbio/about-edit/about-edit.component';
 // import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -48,7 +50,9 @@ import { SkillNewComponent } from './skills-list/skill-new/skill-new.component';
     ExperienceStartComponent,
     ExperienceEditComponent,
     EducationEditComponent,
-    SkillNewComponent
+    SkillNewComponent,
+    BioEditComponent,
+    AboutEditComponent
     // SkillStartComponent,
     // RegisterComponent
   ],

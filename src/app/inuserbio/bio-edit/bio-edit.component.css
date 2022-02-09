@@ -1,0 +1,15 @@
+.formCss{
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/454/659/662/cube-dark-texture-shape-wallpaper-preview.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 10%;
+  padding: 10%;
+
+}
+
+#circle {
+  background-size: cover;
+  border-radius:50% 50% 50% 50%;
+  width:200px;
+  height:200px;
+}
