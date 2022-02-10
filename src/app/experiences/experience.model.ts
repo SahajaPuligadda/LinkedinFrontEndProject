@@ -3,7 +3,7 @@ export class Experience {
   public id: number;
   public title: string;
   public empType: string;
-  public company: string;
+  public companyName: string;
   public location: string;
   public startDate: string;
   public endDate: string;
@@ -18,7 +18,7 @@ export class Experience {
               desc: string) {
     this.title = title;
     this.empType = empType;
-    this.company = company;
+    this.companyName = company;
     this.location = location;
     this.startDate = startDate;
     this.endDate = endDate;

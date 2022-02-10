@@ -1,8 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BioService} from "../bio.service";
 import {Bio} from "../bio.model";
+
+// function checkImageValidator(url: string): ValidatorFn {
+//   return (control: AbstractControl): { [key: string]: boolean } | null => {
+//     let image = new Image();
+//     image.src = url;
+//     // console.log(control.value);
+//     if (image.width > 0) {
+//       console.log("image exists");
+//       return { 'imageValid': true };
+//     } else {
+//       console.log("image doesn't exist");
+//     }
+//     return null;
+//   };
+// }
 
 @Component({
   selector: 'app-bio-edit',
@@ -85,6 +100,7 @@ export class BioEditComponent implements OnInit {
           console.log("Could not load profile details!");
           console.log(error);
         });
+
     this.editBioForm = new FormGroup({
       'name': new FormControl(name, [Validators.required]),
       'tagline': new FormControl(tagline, [Validators.required]),

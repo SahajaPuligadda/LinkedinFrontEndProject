@@ -1,5 +1,6 @@
+<app-header></app-header>
 <a
-  class="list-group-item clearfix">
+  class="list-group-item clearfix" id="about-css">
   <div class="pull-right">
     <button type="button" class="btn btn-link" id="btns" (click)="onEditEducation()">
       <img
@@ -8,7 +9,7 @@
         class="img-responsive"
         id="add-img">
     </button>
-    <button type="button" class="btn btn-link" id="btns">
+    <button type="button" class="btn btn-link" id="btns" (click)="onDeleteEducation()">
       <img
         src="https://image.flaticon.com/icons/png/512/1214/1214594.png?w=900"
         alt="Delete"
@@ -20,7 +21,7 @@
   <div class="pull-left" id="education_details">
     <h3 class="list-group-item-heading" style="font-weight: bolder">School: {{ edu.school }}</h3>
     <h4 class="list-group-item-text" style="font-weight: bold">Degree: {{ edu.degree }}</h4>
-    <h4 class="list-group-item-text">Field of Study: {{ edu.fieldOfStudy }}</h4>
+    <h4 class="list-group-item-text">Field of Study: {{ edu.field }}</h4>
     <h4 class="list-group-item-text">Grade: {{ edu.grade }}</h4>
     <h4 class="list-group-item-text">Start Date: {{ edu.startDate }}</h4>
     <h4 class="list-group-item-text">End Date: {{ edu.endDate }}</h4>
@@ -28,3 +29,9 @@
   </div>
 
 </a>
+<br>
+<div class="pull-right" >
+  <button type="button" class="btn btn-default" id="btns" (click)="onBackEducation()">
+    Back
+  </button>
+</div>

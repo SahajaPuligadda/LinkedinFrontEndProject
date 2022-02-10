@@ -7,23 +7,6 @@ import {Observable} from "rxjs";
 export class ExperienceService {
   expSelected = new EventEmitter<Experience>();
 
-  // private experiences: Experience[] = [
-  //   new Experience('SDE Intern', 'Internship',
-  //     'Kodem Legal Technologies', 'Hyderabad, Telangana, India',
-  //     'Feb 2022', 'Jul 2022', ''),
-  //   new Experience('SDE-1', 'Full-Time',
-  //     'Kodem Legal Technologies', 'Hyderabad, Telangana, India',
-  //     'Feb 2021', 'Feb 2022', '')
-  // ];
-  //
-  // getExperiences() {
-  //   return this.experiences.slice();
-  // }
-  //
-  // getExperience(index: number) {
-  //   return this.experiences[index];
-  // }
-
   url_common: string = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {
@@ -38,4 +21,20 @@ export class ExperienceService {
     return this.http.get<any>(
       this.url_common + '/' + uid + '/experiences' + '/' + eid);
   }
+
+  updateExperience(uid: number, eid: number, exp: Experience): Observable<any> {
+    return this.http.put<any>(
+      this.url_common + '/' + uid + '/experiences/' + eid + '/edit', exp);
+  }
+
+  addExperience(uid: number, exp: Experience): Observable<any> {
+    return this.http.post<any>(
+      this.url_common + '/' + uid + '/experiences/new', exp);
+  }
+
+  deleteExperience(uid: number, eid: number): Observable<any> {
+    return this.http.delete(
+      this.url_common + '/' + uid + '/experiences/' + eid + '/delete');
+  }
+
 }

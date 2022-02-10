@@ -27,7 +27,6 @@ export class ExperienceListComponent implements OnInit {
           console.log(data);
           this.experiences = data;
           for(let i=0; i<data.length; i++) {
-            this.experiences[i].company = data[i].companyName;
             this.experiences[i].startDate =
               this.datepipe.transform(data[i].startDate, 'yyyy-MM-dd');
             this.experiences[i].endDate =

@@ -26,7 +26,6 @@ export class EducationListComponent implements OnInit {
           console.log(data);
           this.educations = data;
           for(let i=0; i<data.length; i++) {
-            this.educations[i].fieldOfStudy = data[i].field;
             this.educations[i].startDate =
               this.datepipe.transform(data[i].startDate, 'yyyy-MM-dd');
             this.educations[i].endDate =

@@ -19,15 +19,12 @@ import { ExperienceDetailComponent } from './experiences/experience-detail/exper
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { EducationsComponent } from './educations/educations.component';
 import { EducationDetailComponent } from './educations/education-detail/education-detail.component';
-import { EducationStartComponent } from './educations/education-start/education-start.component';
-import { ExperienceStartComponent } from './experiences/experience-start/experience-start.component';
 import { ExperienceEditComponent } from './experiences/experience-edit/experience-edit.component';
 import { EducationEditComponent } from './educations/education-edit/education-edit.component';
 import {DatePipe} from "@angular/common";
 import { SkillNewComponent } from './skills-list/skill-new/skill-new.component';
 import { BioEditComponent } from './inuserbio/bio-edit/bio-edit.component';
 import { AboutEditComponent } from './inuserbio/about-edit/about-edit.component';
-// import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,15 +43,11 @@ import { AboutEditComponent } from './inuserbio/about-edit/about-edit.component'
     ExperiencesComponent,
     EducationsComponent,
     EducationDetailComponent,
-    EducationStartComponent,
-    ExperienceStartComponent,
     ExperienceEditComponent,
     EducationEditComponent,
     SkillNewComponent,
     BioEditComponent,
     AboutEditComponent
-    // SkillStartComponent,
-    // RegisterComponent
   ],
   imports: [
     BrowserModule,

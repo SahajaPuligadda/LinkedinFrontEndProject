@@ -6,40 +6,39 @@ import {SkillsListComponent} from "./skills-list/skills-list.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {ExperiencesComponent} from "./experiences/experiences.component";
 import {EducationsComponent} from "./educations/educations.component";
-import {EducationStartComponent} from "./educations/education-start/education-start.component";
 import {EducationDetailComponent} from "./educations/education-detail/education-detail.component";
-import {ExperienceStartComponent} from "./experiences/experience-start/experience-start.component";
 import {ExperienceDetailComponent} from "./experiences/experience-detail/experience-detail.component";
 import {EducationEditComponent} from "./educations/education-edit/education-edit.component";
 import {ExperienceEditComponent} from "./experiences/experience-edit/experience-edit.component";
 import {SkillNewComponent} from "./skills-list/skill-new/skill-new.component";
 import {BioEditComponent} from "./inuserbio/bio-edit/bio-edit.component";
 import {AboutEditComponent} from "./inuserbio/about-edit/about-edit.component";
-// import {RegisterComponent} from "./register/register.component";
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  // {path: 'register', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
+
   {path: ':uid/about', component: InuserbioComponent},
   {path: ':uid/about/edit-bio', component: BioEditComponent},
   {path: ':uid/about/edit-about', component: AboutEditComponent},
-  {path: ':uid/educations', component: EducationsComponent, children: [
-      {path: '', component: EducationStartComponent},
-      {path: 'new', component: EducationEditComponent},
-      {path: ':id', component: EducationDetailComponent},
-      {path: ':id/edit', component: EducationEditComponent}
-    ]},
-  {path: ':uid/experiences', component: ExperiencesComponent, children: [
-      {path: '', component: ExperienceStartComponent},
-      {path: 'new', component: ExperienceEditComponent},
-      {path: ':id', component: ExperienceDetailComponent},
-      {path: ':id/edit', component: ExperienceEditComponent}
-    ]},
+
+  {path: ':uid/educations', component: EducationsComponent},
+  {path: ':uid/experiences', component: ExperiencesComponent},
+
   {path: ':uid/skills', component: SkillsListComponent},
   {path: ':uid/skills/new', component: SkillNewComponent},
+
+  {path: ':uid/educations/new', component: EducationEditComponent},
+  {path: ':uid/experiences/new', component: ExperienceEditComponent},
+
+  {path: ':uid/educations/:id', component: EducationDetailComponent},
+  {path: ':uid/experiences/:id', component: ExperienceDetailComponent},
+
+  {path: ':uid/educations/:id/edit', component: EducationEditComponent},
+  {path: ':uid/experiences/:id/edit', component: ExperienceEditComponent},
+
   {path: '**', redirectTo: '/not-found'} //catch all unknown routes- at last
 ];
 

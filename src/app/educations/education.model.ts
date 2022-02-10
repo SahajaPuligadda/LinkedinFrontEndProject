@@ -3,7 +3,7 @@ export class Education {
   public id: number;
   public school: string;
   public degree: string;
-  public fieldOfStudy: string;
+  public field: string;
   public startDate: string;
   public endDate: string;
   public grade: number;
@@ -11,14 +11,14 @@ export class Education {
 
   constructor(school: string,
   degree: string,
-  fieldOfStudy: string,
+  field: string,
   startDate: string,
   endDate: string,
   grade: number,
   desc: string) {
     this.school = school;
     this.degree = degree;
-    this.fieldOfStudy = fieldOfStudy;
+    this.field = field;
     this.startDate = startDate;
     this.endDate = endDate;
     this.grade = grade;

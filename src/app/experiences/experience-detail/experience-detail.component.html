@@ -1,5 +1,6 @@
+<app-header></app-header>
 <a
-  class="list-group-item clearfix">
+  class="list-group-item clearfix" id="about-css">
   <div class="pull-right">
     <button type="button" class="btn btn-link" id="btns" (click)="onEditExperience()">
       <img
@@ -8,7 +9,7 @@
         class="img-responsive"
         id="add-img">
     </button>
-    <button type="button" class="btn btn-link" id="btns">
+    <button type="button" class="btn btn-link" id="btns" (click)="onDeleteExperience()">
       <img
         src="https://image.flaticon.com/icons/png/512/1214/1214594.png?w=900"
         alt="Delete"
@@ -19,7 +20,7 @@
 
   <div class="pull-left" id="experience_details">
     <h3 class="list-group-item-heading" style="font-weight: bolder">Title: {{ exp.title }}</h3>
-    <h4 class="list-group-item-text" style="font-weight: bold">Company Name: {{ exp.company }}</h4>
+    <h4 class="list-group-item-text" style="font-weight: bold">Company Name: {{ exp.companyName }}</h4>
     <h4 class="list-group-item-text">Employment Type: {{ exp.empType }}</h4>
     <h4 class="list-group-item-text">Location: {{ exp.location }}</h4>
     <h4 class="list-group-item-text">Start Date: {{ exp.startDate }}</h4>
@@ -28,3 +29,9 @@
   </div>
 
 </a>
+<br>
+<div class="pull-right" >
+  <button type="button" class="btn btn-default" id="btns" (click)="onBackExperience()">
+    Back
+  </button>
+</div>

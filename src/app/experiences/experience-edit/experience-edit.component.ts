@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ExperienceService} from "../experience.service";
+import {Experience} from "../experience.model";
 
 @Component({
   selector: 'app-experience-edit',
@@ -9,8 +12,14 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class ExperienceEditComponent implements OnInit {
   id: number;
   editMode = false;
+  UpdateExperienceForm: FormGroup;
+  error: boolean;
+  message: string;
+  exp: Experience;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private experienceService: ExperienceService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -19,6 +28,115 @@ export class ExperienceEditComponent implements OnInit {
         this.editMode = params['id'] !=null;
       }
     );
+    this.initForm();
+  }
+
+  onSubmit() {
+    let uid = this.route.snapshot.params.uid;
+    // console.log("Experience params:");
+    // console.log(this.route.snapshot.params);
+    // console.log(this.UpdateExperienceForm.value);
+    this.exp = new Experience(this.UpdateExperienceForm.value['title'],
+      this.UpdateExperienceForm.value['empType'],
+      this.UpdateExperienceForm.value['company_name'],
+      this.UpdateExperienceForm.value['location'],
+      this.UpdateExperienceForm.value['startDate'],
+      this.UpdateExperienceForm.value['endDate'],
+      this.UpdateExperienceForm.value['description']);
+
+    if(this.editMode) {
+      let eid = this.route.snapshot.params.id;
+      this.experienceService.updateExperience(uid, eid, this.exp)
+        .subscribe(data => {
+            console.log("Updated experience successfully!");
+            console.log(data);
+            this.error = true;
+            this.message = "Updated Experience Successfully!";
+            this.router.navigate(['../'], {relativeTo: this.route});
+          },
+          error => {
+            this.error = true;
+            console.log("Could not update experience!");
+            console.log(error);
+            this.message = "Could not update experience!";
+          });
+      this.UpdateExperienceForm.reset();
+    }
+    else {
+      this.experienceService.addExperience(uid, this.exp)
+        .subscribe(data => {
+            console.log("Added experience successfully!");
+            console.log(data);
+            this.error = true;
+            this.message = "Added Experience Successfully!";
+            this.router.navigate(['../'], {relativeTo: this.route});
+          },
+          error => {
+            this.error = true;
+            console.log("Could not add experience!");
+            console.log(error);
+            this.message = "Could not add experience!";
+          });
+      this.UpdateExperienceForm.reset();
+    }
+  }
+
+  onBackExperience() {
+    this.UpdateExperienceForm.reset();
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  private initForm() {
+    //console.log(this.route.snapshot);
+    let uid = this.route.snapshot.params.uid;
+    let title = "";
+    let companyName = "";
+    let empType = "";
+    let location = "";
+    let startDate = "";
+    let endDate = "";
+    let desc = "";
+
+    if(this.editMode){
+      let eid = this.route.snapshot.params.id;
+      this.experienceService.getExperience(uid, eid)
+        .subscribe(data => {
+            console.log("Experience details backend for form!");
+            console.log(data);
+            title = data.title;
+            companyName = data.companyName;
+            empType = data.empType;
+            location = data.location;
+            startDate = (data.startDate).split('T')[0];
+            startDate.split("-").reverse().join("/");
+            endDate = (data.endDate).split('T')[0];
+            endDate.split("-").reverse().join("/");
+            desc = data.description;
+            this.UpdateExperienceForm = new FormGroup({
+              'title': new FormControl(title, [Validators.required]),
+              'company_name': new FormControl(companyName, [Validators.required]),
+              'empType': new FormControl(empType, [Validators.required]),
+              'location': new FormControl(location, [Validators.required]),
+              'startDate': new FormControl(startDate, [Validators.required]),
+              'endDate': new FormControl(endDate, [Validators.required]),
+              'description': new FormControl(desc, [Validators.required])
+            });
+          },
+          error => {
+            console.log("Could not load experience details!");
+            console.log(error);
+          });
+    }
+
+    this.UpdateExperienceForm = new FormGroup({
+      'title': new FormControl(title, [Validators.required]),
+      'company_name': new FormControl(companyName, [Validators.required]),
+      'empType': new FormControl(empType, [Validators.required]),
+      'location': new FormControl(location, [Validators.required]),
+      'startDate': new FormControl(startDate, [Validators.required]),
+      'endDate': new FormControl(endDate, [Validators.required]),
+      'description': new FormControl(desc, [Validators.required])
+    });
   }
 
 }

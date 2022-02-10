@@ -1,2 +1,152 @@
-<p *ngIf="editMode">education-edit works!</p>
-<p *ngIf="!editMode">new-education works!</p>
+<app-header></app-header>
+<!--<p *ngIf="editMode">experience-edit works!</p>-->
+<!--<p *ngIf="!editMode">new-experience works!</p>-->
+<div class="row formCss" id="about-css">
+  <div class="col-xs-12">
+    <h3 style="color: white">
+      {{ editMode ? 'Edit Experience Details!' : 'Create New Experience!' }}
+    </h3>
+    <form [formGroup]="UpdateExperienceForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="title" style="color: white;">Title</label>
+            <input
+              type="text"
+              id="title"
+              formControlName="title"
+              class="form-control"
+              name="title">
+            <span
+              *ngIf="!UpdateExperienceForm.get('title').valid && UpdateExperienceForm.get('title').touched"
+              class="help-block">Enter valid title!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="company_name" style="color: white;">Company Name</label>
+            <input
+              type="text"
+              id="company_name"
+              formControlName="company_name"
+              class="form-control"
+              name="company_name">
+            <span
+              *ngIf="!UpdateExperienceForm.get('company_name').valid && UpdateExperienceForm.get('company_name').touched"
+              class="help-block">Enter valid company name!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="empType" style="color: white;">Employment Type</label>
+            <input
+              type="text"
+              id="empType"
+              formControlName="empType"
+              class="form-control"
+              name="empType">
+            <span
+              *ngIf="!UpdateExperienceForm.get('empType').valid && UpdateExperienceForm.get('empType').touched"
+              class="help-block">Enter valid employment type!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="location" style="color: white;">Location</label>
+            <input
+              type="text"
+              id="location"
+              formControlName="location"
+              class="form-control"
+              name="location">
+            <span
+              *ngIf="!UpdateExperienceForm.get('location').valid && UpdateExperienceForm.get('location').touched"
+              class="help-block">Enter valid location!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="startDate" style="color: white;">Start Date</label>
+            <input
+              type="date"
+              id="startDate"
+              formControlName="startDate"
+              class="form-control"
+              name="startDate">
+            <span
+              *ngIf="!UpdateExperienceForm.get('startDate').valid && UpdateExperienceForm.get('startDate').touched"
+              class="help-block">Enter valid date!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="endDate" style="color: white;">End Date</label>
+            <input
+              type="date"
+              id="endDate"
+              formControlName="endDate"
+              class="form-control"
+              name="endDate">
+            <span
+              *ngIf="!UpdateExperienceForm.get('endDate').valid &&
+              UpdateExperienceForm.get('endDate').touched"
+              class="help-block">Enter valid date!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description" style="color: white;">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              formControlName="description"
+              class="md-textarea md-textarea-auto form-control"
+              rows="10"
+              columns="20"
+              name="description">
+            </textarea>
+            <span
+              *ngIf="!UpdateExperienceForm.get('description').valid &&
+              UpdateExperienceForm.get('description').touched"
+              class="help-block">Enter valid description!</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <button
+            type="submit"
+            class="btn btn-default"
+            [disabled]="!UpdateExperienceForm.valid" style="margin-right: 5%">
+            {{ editMode ? 'Update' : 'Create' }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-default" style="margin-right: 5%"
+            (click)="onBackExperience()">Back</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h3>
+             <span *ngIf="error"
+                   class="help-block">{{ message }}</span>
+          </h3>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

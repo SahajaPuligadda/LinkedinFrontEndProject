@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Experience} from "../experience.model";
 import {ExperienceService} from "../experience.service";
-import {ActivatedRoute, Params, Route, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
 
 @Component({
@@ -11,7 +11,6 @@ import {DatePipe} from "@angular/common";
 })
 export class ExperienceDetailComponent implements OnInit {
   exp: Experience = new Experience('','','','','', '', '');
-  id: number;
 
   constructor(private experienceService: ExperienceService,
               private route: ActivatedRoute,
@@ -32,14 +31,13 @@ export class ExperienceDetailComponent implements OnInit {
               console.log("Single Experience details backend!");
               console.log(data);
               this.exp = data;
-              this.exp.company = data.companyName;
               this.exp.startDate =
                 this.datepipe.transform(data.startDate, 'yyyy-MM-dd');
               this.exp.endDate =
                 this.datepipe.transform(data.endDate, 'yyyy-MM-dd');
               console.log("angular single experience");
               console.log(this.exp);
-              document.getElementById("experience_details").scrollIntoView({behavior: 'smooth'});
+              // document.getElementById("experience_details").scrollIntoView({behavior: 'smooth'});
             },
             error => {
               console.log("Could not load single experience!");
@@ -52,6 +50,29 @@ export class ExperienceDetailComponent implements OnInit {
 
   onEditExperience() {
     this.router.navigate(['edit'], {relativeTo: this.route});
+  }
+
+  onBackExperience() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  onDeleteExperience() {
+    let temp = this.router.url.split('/');
+    let uid = +temp[1];
+    let eid = this.route.snapshot.params.id;
+    //console.log(this.router.url);
+    console.log("uid: " + uid);
+    console.log("eid: " + eid);
+    this.experienceService.deleteExperience(uid, eid)
+      .subscribe(data => {
+          console.log("Deleted Experience successfully!");
+          console.log(data);
+          this.router.navigate(['../'], {relativeTo: this.route});
+        },
+        error => {
+          console.log("Could not delete experience!");
+          console.log(error);
+        });
   }
 
 }
