@@ -1,6 +1,6 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UserValidationService} from "../user-validation.service";
 import {User} from "../user.model";
 
@@ -48,7 +48,8 @@ export class LoginComponent implements OnInit {
           this.uid = data.id;
           this.error = true;
           this.message = "Logged in Successfully!";
-          this.router.navigate(['../' + data.id + '/about'], {relativeTo: this.route});
+          this.router.navigate(['../' + data.id + '/about'],
+            {relativeTo: this.route});
         },
           error => {
           this.error = true;
@@ -86,6 +87,5 @@ export class LoginComponent implements OnInit {
       'password': new FormControl(password, Validators.required)
     });
   }
-
 
 }

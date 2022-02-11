@@ -26,8 +26,6 @@ export class SkillNewComponent implements OnInit {
 
   onSubmit() {
     let uid = this.route.snapshot.params.uid;
-    // console.log("SKill params:");
-    // console.log(this.route.snapshot.params.uid);
     console.log(this.newSkillForm.value);
     this.skill = new Skill(this.newSkillForm.value['name']);
     this.skillService.createSkill(uid, this.skill)

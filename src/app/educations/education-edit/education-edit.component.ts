@@ -33,9 +33,6 @@ export class EducationEditComponent implements OnInit {
 
   onSubmit() {
     let uid = this.route.snapshot.params.uid;
-    // console.log("Education params:");
-    // console.log(this.route.snapshot.params);
-    // console.log(this.UpdateEducationForm.value);
     this.edu = new Education(this.UpdateEducationForm.value['school'],
       this.UpdateEducationForm.value['degree'],
       this.UpdateEducationForm.value['field'],

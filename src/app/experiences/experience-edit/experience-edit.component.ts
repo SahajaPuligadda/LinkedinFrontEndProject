@@ -33,9 +33,6 @@ export class ExperienceEditComponent implements OnInit {
 
   onSubmit() {
     let uid = this.route.snapshot.params.uid;
-    // console.log("Experience params:");
-    // console.log(this.route.snapshot.params);
-    // console.log(this.UpdateExperienceForm.value);
     this.exp = new Experience(this.UpdateExperienceForm.value['title'],
       this.UpdateExperienceForm.value['empType'],
       this.UpdateExperienceForm.value['company_name'],
@@ -87,7 +84,6 @@ export class ExperienceEditComponent implements OnInit {
   }
 
   private initForm() {
-    //console.log(this.route.snapshot);
     let uid = this.route.snapshot.params.uid;
     let title = "";
     let companyName = "";

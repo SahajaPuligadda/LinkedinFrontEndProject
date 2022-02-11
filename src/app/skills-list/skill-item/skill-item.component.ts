@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Skill} from "../skill.model";
 import {SkillService} from "../skill.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Education} from "../../educations/education.model";
 
 @Component({
   selector: 'app-skill-item',
@@ -12,7 +11,6 @@ import {Education} from "../../educations/education.model";
 export class SkillItemComponent implements OnInit {
   @Input() skill: Skill;
   @Output() isSkillDeleted: EventEmitter<boolean> = new EventEmitter<boolean>();
-  // sid: number;
 
   constructor(private skillService: SkillService,
               private router: Router,
@@ -33,12 +31,6 @@ export class SkillItemComponent implements OnInit {
           console.log("Deleted Skill successfully!");
           console.log(data);
           this.isSkillDeleted.emit(true);
-          // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          //   console.log(this.router.url);
-          //   this.router.navigate(['../skills'], {relativeTo: this.route});
-          //   console.log(this.router.url);
-          // });
-          // this.router.navigate(['../skills'], {relativeTo: this.route});
         },
         error => {
           this.isSkillDeleted.emit(false);
@@ -49,7 +41,6 @@ export class SkillItemComponent implements OnInit {
 
   onEditSkill() {
     let sid = this.skill.id;
-    // console.log(this.router.url);
     this.router.navigate([sid + '/edit'], {relativeTo: this.route});
   }
 }

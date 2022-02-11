@@ -19,7 +19,6 @@ export class ExperienceListComponent implements OnInit {
               public datepipe: DatePipe) { }
 
   ngOnInit() {
-    // this.experiences = this.experienceService.getExperiences();
     this.id = this.route.snapshot.params.uid;
     this.experienceService.getExperiences(this.id)
       .subscribe(data => {

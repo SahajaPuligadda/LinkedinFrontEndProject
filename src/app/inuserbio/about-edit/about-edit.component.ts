@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Skill} from "../../skills-list/skill.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {SkillService} from "../../skills-list/skill.service";
 import {BioService} from "../bio.service";
 
 @Component({
@@ -28,9 +26,6 @@ export class AboutEditComponent implements OnInit {
 
   onSubmit() {
     let uid = this.route.snapshot.params.uid;
-    // console.log("About params:");
-    // console.log(this.route.snapshot.params.uid);
-    // console.log(this.editAboutForm.value);
     this.about = this.editAboutForm.value['about'];
     this.bioService.updateAbout(uid, this.about)
       .subscribe(data => {
@@ -58,11 +53,8 @@ export class AboutEditComponent implements OnInit {
   private initForm() {
     let uid = this.route.snapshot.params.uid;
     let about = "";
-    // console.log("about: " + about);
     this.bioService.getBio(uid)
       .subscribe(data => {
-          // console.log("Profile details backend!");
-          // console.log(data);
           about = data.about;
           this.editAboutForm = new FormGroup({
             'about': new FormControl(about, [Validators.required])

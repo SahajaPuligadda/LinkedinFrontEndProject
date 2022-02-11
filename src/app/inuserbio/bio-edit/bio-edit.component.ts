@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BioService} from "../bio.service";
 import {Bio} from "../bio.model";
@@ -42,9 +42,6 @@ export class BioEditComponent implements OnInit {
 
   onSubmit() {
     let uid = this.route.snapshot.params.uid;
-    // console.log("Bio params:");
-    // console.log(this.route.snapshot.params.uid);
-    // console.log(this.editBioForm.value);
     this.bio = new Bio(this.editBioForm.value['name'],
       this.editBioForm.value['tagline'], this.editBioForm.value['workplace'],
       this.editBioForm.value['location'], this.editBioForm.value['photo'], '');

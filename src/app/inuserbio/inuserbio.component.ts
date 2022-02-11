@@ -20,16 +20,11 @@ export class InuserbioComponent implements OnInit {
 
   ngOnInit(){
     let id = this.route.snapshot.params.uid;
-    // console.log(id);
-    // this.bio = this.bioService.getBio(id);
-    // console.log(this.bio);
     this.bioService.getBio(id)
       .subscribe(data => {
           console.log("Profile details backend!");
           console.log(data);
           this.bio = data;
-          this.bio.photo = data.photo;
-          this.bio.name = data.name;
           console.log("angular bio");
           console.log(this.bio);
         },
@@ -44,7 +39,6 @@ export class InuserbioComponent implements OnInit {
   }
 
   onEditAbout() {
-    // console.log("this.bio.about: "+this.bio.about);
     this.router.navigate(['edit-about'], {relativeTo: this.route});
   }
 
