@@ -25,6 +25,7 @@ import {DatePipe} from "@angular/common";
 import { SkillNewComponent } from './skills-list/skill-new/skill-new.component';
 import { BioEditComponent } from './inuserbio/bio-edit/bio-edit.component';
 import { AboutEditComponent } from './inuserbio/about-edit/about-edit.component';
+import { SkillEditComponent } from './skills-list/skill-edit/skill-edit.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AboutEditComponent } from './inuserbio/about-edit/about-edit.component'
     EducationEditComponent,
     SkillNewComponent,
     BioEditComponent,
-    AboutEditComponent
+    AboutEditComponent,
+    SkillEditComponent
   ],
   imports: [
     BrowserModule,

@@ -47,4 +47,9 @@ export class SkillItemComponent implements OnInit {
         });
   }
 
+  onEditSkill() {
+    let sid = this.skill.id;
+    // console.log(this.router.url);
+    this.router.navigate([sid + '/edit'], {relativeTo: this.route});
+  }
 }
