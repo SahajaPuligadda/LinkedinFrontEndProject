@@ -41,7 +41,7 @@ export class ExperienceListComponent implements OnInit {
   }
 
   onNewExperience() {
-    this.router.navigate(['new'], {relativeTo: this.route });
+    this.router.navigate(['../experiences/new'], {relativeTo: this.route });
   }
 
 }

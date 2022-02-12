@@ -41,6 +41,6 @@ export class SkillItemComponent implements OnInit {
 
   onEditSkill() {
     let sid = this.skill.id;
-    this.router.navigate([sid + '/edit'], {relativeTo: this.route});
+    this.router.navigate(['../skills/' + sid + '/edit'], {relativeTo: this.route});
   }
 }

@@ -66,7 +66,7 @@ export class EducationEditComponent implements OnInit {
             console.log(data);
             this.error = true;
             this.message = "Added Education Successfully!";
-            this.router.navigate(['../'], {relativeTo: this.route});
+            this.router.navigateByUrl("/" + uid + "/home");
           },
           error => {
             this.error = true;

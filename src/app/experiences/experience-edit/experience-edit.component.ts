@@ -66,7 +66,7 @@ export class ExperienceEditComponent implements OnInit {
             console.log(data);
             this.error = true;
             this.message = "Added Experience Successfully!";
-            this.router.navigate(['../'], {relativeTo: this.route});
+            this.router.navigateByUrl("/" + uid + "/home");
           },
           error => {
             this.error = true;

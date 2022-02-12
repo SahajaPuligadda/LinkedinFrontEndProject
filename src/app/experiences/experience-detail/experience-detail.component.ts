@@ -53,7 +53,8 @@ export class ExperienceDetailComponent implements OnInit {
   }
 
   onBackExperience() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    let uid = this.route.snapshot.params.uid;
+    this.router.navigateByUrl('/' + uid + '/home');
   }
 
   onDeleteExperience() {
@@ -67,7 +68,7 @@ export class ExperienceDetailComponent implements OnInit {
       .subscribe(data => {
           console.log("Deleted Experience successfully!");
           console.log(data);
-          this.router.navigate(['../'], {relativeTo: this.route});
+          this.router.navigateByUrl("/" + uid + "/home");
         },
         error => {
           console.log("Could not delete experience!");

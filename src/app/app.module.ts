@@ -26,6 +26,7 @@ import { SkillNewComponent } from './skills-list/skill-new/skill-new.component';
 import { BioEditComponent } from './inuserbio/bio-edit/bio-edit.component';
 import { AboutEditComponent } from './inuserbio/about-edit/about-edit.component';
 import { SkillEditComponent } from './skills-list/skill-edit/skill-edit.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SkillEditComponent } from './skills-list/skill-edit/skill-edit.componen
     SkillNewComponent,
     BioEditComponent,
     AboutEditComponent,
-    SkillEditComponent
+    SkillEditComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

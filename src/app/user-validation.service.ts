@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 
 @Injectable({providedIn: "root"})
 export class UserValidationService{
+    scrollId = 'intro';
     url_common: string = 'http://localhost:8080';
 
     constructor(private http: HttpClient) {

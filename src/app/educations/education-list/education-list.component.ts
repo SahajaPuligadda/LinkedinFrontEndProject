@@ -41,7 +41,7 @@ export class EducationListComponent implements OnInit {
   }
 
   onNewEducation() {
-    this.router.navigate(['new'], {relativeTo: this.route });
+    this.router.navigate(['../educations/new'], {relativeTo: this.route });
   }
 
 }

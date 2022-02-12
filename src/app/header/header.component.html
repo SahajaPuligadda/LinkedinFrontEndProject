@@ -25,19 +25,30 @@
       <ul class="nav navbar-nav navbar-right">
         <li
           routerLinkActive="active">
-          <a [routerLink]="['/', uid, 'about']">Introduction</a>
+          <a [routerLink]="['/', uid, 'home']">Home</a>
         </li>
-        <li
-          routerLinkActive="active">
-          <a [routerLink]="['/', uid, 'educations']">Education</a>
+        <li>
+<!--          <a [routerLink]="['/', uid, 'about']">Introduction</a>-->
+          <a
+             [routerLink]="['/', uid, 'home']"
+             (click)="onIntroduction()"
+             style="cursor: pointer;">Introduction</a>
         </li>
-        <li
-          routerLinkActive="active">
-          <a [routerLink]="['/', uid, 'experiences']">Experience</a>
+        <li>
+          <a
+             [routerLink]="['/', uid, 'home']"
+             (click)="onEducation()"
+             style="cursor: pointer;">Education</a>
         </li>
-        <li
-          routerLinkActive="active">
-          <a [routerLink]="['/', uid, 'skills']">Skills</a>
+        <li>
+          <a (click)="onExperience()"
+             [routerLink]="['/', uid, 'home']"
+             style="cursor: pointer;">Experience</a>
+        </li>
+        <li>
+          <a (click)="onSkills()"
+             [routerLink]="['/', uid, 'home']"
+             style="cursor: pointer;">Skills</a>
         </li>
         <li
           routerLinkActive="active">

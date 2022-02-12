@@ -36,7 +36,7 @@ export class SkillEditComponent implements OnInit {
           console.log(data);
           this.error = true;
           this.message = "Updated Skill Successfully!";
-          this.router.navigateByUrl('/' + uid + '/skills');
+          this.router.navigateByUrl('/' + uid + '/home');
         },
         error => {
           this.error = true;
@@ -50,7 +50,7 @@ export class SkillEditComponent implements OnInit {
   onBackSkill() {
     let uid = this.route.snapshot.params.uid;
     this.editSkillForm.reset();
-    this.router.navigateByUrl('/' + uid + '/skills');
+    this.router.navigateByUrl('/' + uid + '/home');
   }
 
   private initForm() {

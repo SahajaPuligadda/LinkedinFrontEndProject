@@ -51,7 +51,8 @@ export class EducationDetailComponent implements OnInit {
   }
 
   onBackEducation() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    let uid = this.route.snapshot.params.uid;
+    this.router.navigateByUrl('/' + uid + '/home');
   }
 
   onDeleteEducation() {
@@ -65,7 +66,7 @@ export class EducationDetailComponent implements OnInit {
       .subscribe(data => {
           console.log("Deleted Education successfully!");
           console.log(data);
-          this.router.navigate(['../'], {relativeTo: this.route});
+          this.router.navigateByUrl("/" + uid + "/home");
         },
         error => {
           console.log("Could not delete education!");

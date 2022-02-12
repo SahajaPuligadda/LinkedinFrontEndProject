@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SkillService} from "./skill.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Skill} from "./skill.model";
+import {UserValidationService} from "../user-validation.service";
 
 @Component({
   selector: 'app-skills-list',
@@ -38,7 +39,7 @@ export class SkillsListComponent implements OnInit {
   }
 
   onNewSkill() {
-    this.router.navigate(['new'], {relativeTo: this.route});
+    this.router.navigate(['../skills/new'], {relativeTo: this.route});
   }
 
 }

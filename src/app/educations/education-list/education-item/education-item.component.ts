@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Education} from "../../education.model";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-education-item',
@@ -11,7 +12,19 @@ export class EducationItemComponent implements OnInit {
   @Input() index: number;
   @Input() uid: number;
 
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
+  }
+
   ngOnInit(): void {
+  }
+
+  onClickEducation() {
+  // :uid/educations/:id
+    console.log("index: " + this.index);
+    console.log("uid: " + this.uid);
+    console.log(this.router.url);
+    this.router.navigate(['../educations/' + this.index], {relativeTo: this.route});
   }
 
 }

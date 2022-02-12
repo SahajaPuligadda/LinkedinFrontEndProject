@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { Bio } from './bio.model';
 import {BioService} from "./bio.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UserValidationService} from "../user-validation.service";
 
 @Component({
   selector: 'app-inuserbio',
@@ -35,11 +36,11 @@ export class InuserbioComponent implements OnInit {
   }
 
   onEditBio() {
-    this.router.navigate(['edit-bio'], {relativeTo: this.route});
+    this.router.navigate(['../about/edit-bio'], {relativeTo: this.route});
   }
 
   onEditAbout() {
-    this.router.navigate(['edit-about'], {relativeTo: this.route});
+    this.router.navigate(['../about/edit-about'], {relativeTo: this.route});
   }
 
 }
