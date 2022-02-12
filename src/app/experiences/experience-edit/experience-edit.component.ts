@@ -81,9 +81,15 @@ export class ExperienceEditComponent implements OnInit {
   }
 
   onBackExperience() {
+    let uid = this.route.snapshot.params.uid;
     if(confirm("Are you sure to go back?")) {
       this.UpdateExperienceForm.reset();
-      this.router.navigate(['../'], {relativeTo: this.route});
+      if(this.editMode) {
+        this.router.navigate(['../'], {relativeTo: this.route});
+      }
+      else{
+        this.router.navigateByUrl("/" + uid + "/home");
+      }
     }
   }
 
@@ -120,7 +126,11 @@ export class ExperienceEditComponent implements OnInit {
               'startDate': new FormControl(startDate, [Validators.required]),
               'endDate': new FormControl(endDate, [Validators.required]),
               'description': new FormControl(desc, [Validators.required])
-            });
+            },
+              { validators:
+                  this.experienceService.validateDates('startDate',
+                    'endDate') }
+              );
           },
           error => {
             console.log("Could not load experience details!");
@@ -136,7 +146,11 @@ export class ExperienceEditComponent implements OnInit {
       'startDate': new FormControl(startDate, [Validators.required]),
       'endDate': new FormControl(endDate, [Validators.required]),
       'description': new FormControl(desc, [Validators.required])
-    });
+    },
+      { validators:
+          this.experienceService.validateDates('startDate',
+            'endDate') }
+      );
   }
 
 }

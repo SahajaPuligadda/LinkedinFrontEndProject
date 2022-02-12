@@ -81,9 +81,15 @@ export class EducationEditComponent implements OnInit {
   }
 
   onBackEducation() {
+    let uid = this.route.snapshot.params.uid;
     if(confirm("Are you sure to go back?")) {
       this.UpdateEducationForm.reset();
-      this.router.navigate(['../'], {relativeTo: this.route});
+      if(this.editMode) {
+        this.router.navigate(['../'], {relativeTo: this.route});
+      }
+      else{
+        this.router.navigateByUrl("/" + uid + "/home");
+      }
     }
   }
 
@@ -120,7 +126,11 @@ export class EducationEditComponent implements OnInit {
               'endDate': new FormControl(endDate, [Validators.required]),
               'grade': new FormControl(grade, [Validators.required]),
               'description': new FormControl(desc, [Validators.required])
-            });
+            },
+              { validators:
+                  this.educationService.validateDates('startDate',
+                    'endDate') }
+              );
           },
           error => {
             console.log("Could not load education details!");
@@ -136,7 +146,11 @@ export class EducationEditComponent implements OnInit {
       'endDate': new FormControl(endDate, [Validators.required]),
       'grade': new FormControl(grade, [Validators.required]),
       'description': new FormControl(desc, [Validators.required])
-    });
+    },
+      { validators:
+          this.educationService.validateDates('startDate',
+            'endDate') }
+    );
   }
 
 }

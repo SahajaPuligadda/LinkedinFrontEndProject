@@ -100,6 +100,11 @@
               *ngIf="!UpdateEducationForm.get('endDate').valid &&
               UpdateEducationForm.get('endDate').touched"
               class="help-block">Enter valid date!</span>
+            <span class="text-danger"
+                  *ngIf="UpdateEducationForm.get('endDate').touched
+                  && UpdateEducationForm.get('endDate').errors?.endDateMismatch">
+              End date should always be greater than start date!
+            </span>
           </div>
         </div>
       </div>

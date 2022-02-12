@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.uid = data.id;
         this.error = true;
         this.message = "Logged in Successfully!";
-        window.alert("Logged in successfully!");
+        // window.alert("Logged in successfully!");
         this.router.navigate(['../' + data.id + '/home'],
           {relativeTo: this.route});
       },
