@@ -15,11 +15,13 @@ import {BioEditComponent} from "./inuserbio/bio-edit/bio-edit.component";
 import {AboutEditComponent} from "./inuserbio/about-edit/about-edit.component";
 import {SkillEditComponent} from "./skills-list/skill-edit/skill-edit.component";
 import {HomeComponent} from "./home/home.component";
+import {RegisterComponent} from "./register/register.component";
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
 
   {path: ':uid/home', component: HomeComponent},

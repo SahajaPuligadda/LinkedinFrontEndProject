@@ -1,7 +1,7 @@
 <div class="row formCss">
   <div class="col-xs-12">
     <h2 style="color: white;">
-      Welcome to Linkedin Page! {{ isLoginMode ? 'Login to your account!' : 'Register here!' }}
+      Welcome to Linkedin Page! Login to your account!
       </h2>
     <hr>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -43,9 +43,9 @@
           <button
             type="submit"
             class="btn btn-default"
-            [disabled]="!loginForm.valid" style="margin-right: 5%">{{ isLoginMode ? 'Login' : 'Register' }}</button>
+            [disabled]="!loginForm.valid" style="margin-right: 5%">Login</button>
           <button type="button" class="btn btn-default"
-                  (click)="onSwitchMode()">{{ !isLoginMode ? 'Login' : 'Register' }}</button>
+                  (click)="onRegister()">Register</button>
         </div>
       </div>
       <div class="row">

@@ -12,7 +12,7 @@ import {User} from "../user.model";
 export class LoginComponent implements OnInit {
   @Output() uid: number;
 
-  isLoginMode = true;
+  // isLoginMode = true;
   loginForm: FormGroup;
   error: boolean;
   name: string;
@@ -29,53 +29,33 @@ export class LoginComponent implements OnInit {
     this.initForm();
   }
 
-  onSwitchMode(){
-    this.isLoginMode = !this.isLoginMode;
-    this.error = false;
+  onRegister(){
     this.loginForm.reset();
+    this.router.navigate(["../register"], {relativeTo: this.route});
   }
 
   onSubmit() {
     console.log(this.loginForm.value);
-    if(this.isLoginMode) {
-      this.user = new User(this.loginForm.value['email'],
-        this.loginForm.value['password']);
-      this.userValidationService.validateUser(this.user)
-        .subscribe(data => {
-          console.log("Logged in properly!");
-          console.log(data);
-          console.log(data.id);
-          this.uid = data.id;
-          this.error = true;
-          this.message = "Logged in Successfully!";
-          window.alert("Logged in successfully!");
-          this.router.navigate(['../' + data.id + '/home'],
-            {relativeTo: this.route});
-        },
-          error => {
-          this.error = true;
-          console.log("Access Denied!");
-          console.log(error);
-          this.message = "Invalid Credentials";
-          });
-    }
-    else{
-      this.email = this.loginForm.value['email'];
-      this.password = this.loginForm.value['password'];
-      this.user = new User(this.loginForm.value['email'],
-        this.loginForm.value['password']);
-      this.userValidationService.registerUser(this.user)
-        .subscribe(data => {
-            this.error = true;
-            console.log("User is registered");
-            this.message = "User is registered successfully! Login to your account!";
-          },
-          error => {
-            this.error = true;
-            console.log("Could not register. Account already exists!");
-            this.message = "Account already exists! Try to login to your account!";
-          });
-    }
+    this.user = new User(this.loginForm.value['email'],
+      this.loginForm.value['password']);
+    this.userValidationService.validateUser(this.user)
+      .subscribe(data => {
+        console.log("Logged in properly!");
+        console.log(data);
+        console.log(data.id);
+        this.uid = data.id;
+        this.error = true;
+        this.message = "Logged in Successfully!";
+        window.alert("Logged in successfully!");
+        this.router.navigate(['../' + data.id + '/home'],
+          {relativeTo: this.route});
+      },
+        error => {
+        this.error = true;
+        console.log("Access Denied!");
+        console.log(error);
+        this.message = "Invalid Credentials";
+        });
     this.loginForm.reset();
   }
 
