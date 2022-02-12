@@ -56,22 +56,25 @@ export class EducationDetailComponent implements OnInit {
   }
 
   onDeleteEducation() {
-    let temp = this.router.url.split('/');
-    let uid = +temp[1];
-    let eid = this.route.snapshot.params.id;
-    //console.log(this.router.url);
-    console.log("uid: " + uid);
-    console.log("eid: " + eid);
-    this.educationService.deleteEducation(uid, eid)
-      .subscribe(data => {
-          console.log("Deleted Education successfully!");
-          console.log(data);
-          this.router.navigateByUrl("/" + uid + "/home");
-        },
-        error => {
-          console.log("Could not delete education!");
-          console.log(error);
-        });
+    if(confirm("Are you sure to delete education?")) {
+      let temp = this.router.url.split('/');
+      let uid = +temp[1];
+      let eid = this.route.snapshot.params.id;
+      //console.log(this.router.url);
+      console.log("uid: " + uid);
+      console.log("eid: " + eid);
+      this.educationService.deleteEducation(uid, eid)
+        .subscribe(data => {
+            console.log("Deleted Education successfully!");
+            console.log(data);
+            window.alert("Deleted Education successfully!");
+            this.router.navigateByUrl("/" + uid + "/home");
+          },
+          error => {
+            console.log("Could not delete education!");
+            console.log(error);
+          });
+    }
   }
 
 }

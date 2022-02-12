@@ -49,6 +49,7 @@ export class EducationEditComponent implements OnInit {
             console.log(data);
             this.error = true;
             this.message = "Updated Education Successfully!";
+            window.alert("Updated Education Successfully!");
             this.router.navigate(['../'], {relativeTo: this.route});
           },
           error => {
@@ -66,6 +67,7 @@ export class EducationEditComponent implements OnInit {
             console.log(data);
             this.error = true;
             this.message = "Added Education Successfully!";
+            window.alert("Added Education Successfully!");
             this.router.navigateByUrl("/" + uid + "/home");
           },
           error => {
@@ -79,8 +81,10 @@ export class EducationEditComponent implements OnInit {
   }
 
   onBackEducation() {
-    this.UpdateEducationForm.reset();
-    this.router.navigate(['../'], {relativeTo: this.route});
+    if(confirm("Are you sure to go back?")) {
+      this.UpdateEducationForm.reset();
+      this.router.navigate(['../'], {relativeTo: this.route});
+    }
   }
 
   private initForm() {

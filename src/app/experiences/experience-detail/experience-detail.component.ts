@@ -58,22 +58,24 @@ export class ExperienceDetailComponent implements OnInit {
   }
 
   onDeleteExperience() {
-    let temp = this.router.url.split('/');
-    let uid = +temp[1];
-    let eid = this.route.snapshot.params.id;
-    //console.log(this.router.url);
-    console.log("uid: " + uid);
-    console.log("eid: " + eid);
-    this.experienceService.deleteExperience(uid, eid)
-      .subscribe(data => {
-          console.log("Deleted Experience successfully!");
-          console.log(data);
-          this.router.navigateByUrl("/" + uid + "/home");
-        },
-        error => {
-          console.log("Could not delete experience!");
-          console.log(error);
-        });
+    if(confirm("Are you sure to delete experience?")) {
+      let temp = this.router.url.split('/');
+      let uid = +temp[1];
+      let eid = this.route.snapshot.params.id;
+      //console.log(this.router.url);
+      console.log("uid: " + uid);
+      console.log("eid: " + eid);
+      this.experienceService.deleteExperience(uid, eid)
+        .subscribe(data => {
+            console.log("Deleted Experience successfully!");
+            console.log(data);
+            this.router.navigateByUrl("/" + uid + "/home");
+          },
+          error => {
+            console.log("Could not delete experience!");
+            console.log(error);
+          });
+    }
   }
 
 }

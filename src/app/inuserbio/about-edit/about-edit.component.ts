@@ -34,6 +34,7 @@ export class AboutEditComponent implements OnInit {
           console.log(data.id);
           this.error = true;
           this.message = "Updated About Successfully!";
+          window.alert("Updated About successfully!");
           this.router.navigateByUrl("/" + uid + "/home");
         },
         error => {
@@ -46,9 +47,11 @@ export class AboutEditComponent implements OnInit {
   }
 
   onBackAbout() {
-    let uid = this.route.snapshot.params.uid;
-    this.editAboutForm.reset();
-    this.router.navigateByUrl("/" + uid + "/home");
+    if(confirm("Are you sure to go back?")) {
+      let uid = this.route.snapshot.params.uid;
+      this.editAboutForm.reset();
+      this.router.navigateByUrl("/" + uid + "/home");
+    }
   }
 
   private initForm() {

@@ -20,23 +20,26 @@ export class SkillItemComponent implements OnInit {
   }
 
   onDelete(){
-    let temp = this.router.url.split('/');
-    let uid = +temp[1];
-    let sid = this.skill.id;
-    //console.log(this.router.url);
-    console.log("uid: " + uid);
-    console.log("sid: " + sid);
-    this.skillService.deleteSkill(uid, sid)
-      .subscribe(data => {
-          console.log("Deleted Skill successfully!");
-          console.log(data);
-          this.isSkillDeleted.emit(true);
-        },
-        error => {
-          this.isSkillDeleted.emit(false);
-          console.log("Could not delete skill!");
-          console.log(error);
-        });
+    if(confirm("Are you sure to delete " + this.skill.skillName + " skill?")) {
+      let temp = this.router.url.split('/');
+      let uid = +temp[1];
+      let sid = this.skill.id;
+      //console.log(this.router.url);
+      console.log("uid: " + uid);
+      console.log("sid: " + sid);
+      this.skillService.deleteSkill(uid, sid)
+        .subscribe(data => {
+            console.log("Deleted Skill successfully!");
+            console.log(data);
+            window.alert("Deleted Skill successfully!");
+            this.isSkillDeleted.emit(true);
+          },
+          error => {
+            this.isSkillDeleted.emit(false);
+            console.log("Could not delete skill!");
+            console.log(error);
+          });
+    }
   }
 
   onEditSkill() {

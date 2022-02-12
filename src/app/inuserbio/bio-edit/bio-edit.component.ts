@@ -52,6 +52,7 @@ export class BioEditComponent implements OnInit {
           console.log(data.id);
           this.error = true;
           this.message = "Updated Bio Successfully!";
+          window.alert("Updated bio successfully!");
           this.router.navigateByUrl("/" + uid + "/home");
         },
         error => {
@@ -64,9 +65,11 @@ export class BioEditComponent implements OnInit {
   }
 
   onBackBio() {
-    let uid = this.route.snapshot.params.uid;
-    this.editBioForm.reset();
-    this.router.navigateByUrl("/" + uid + "/home");
+    if(confirm("Are you sure to go back?")) {
+      let uid = this.route.snapshot.params.uid;
+      this.editBioForm.reset();
+      this.router.navigateByUrl("/" + uid + "/home");
+    }
   }
 
   private initForm() {

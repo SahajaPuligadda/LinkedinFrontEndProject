@@ -49,6 +49,7 @@ export class ExperienceEditComponent implements OnInit {
             console.log(data);
             this.error = true;
             this.message = "Updated Experience Successfully!";
+            window.alert("Updated Experience Successfully!");
             this.router.navigate(['../'], {relativeTo: this.route});
           },
           error => {
@@ -66,6 +67,7 @@ export class ExperienceEditComponent implements OnInit {
             console.log(data);
             this.error = true;
             this.message = "Added Experience Successfully!";
+            window.alert("Added Experience Successfully!");
             this.router.navigateByUrl("/" + uid + "/home");
           },
           error => {
@@ -79,8 +81,10 @@ export class ExperienceEditComponent implements OnInit {
   }
 
   onBackExperience() {
-    this.UpdateExperienceForm.reset();
-    this.router.navigate(['../'], {relativeTo: this.route});
+    if(confirm("Are you sure to go back?")) {
+      this.UpdateExperienceForm.reset();
+      this.router.navigate(['../'], {relativeTo: this.route});
+    }
   }
 
   private initForm() {
