@@ -22,8 +22,6 @@ export class ExperienceListComponent implements OnInit {
     this.id = this.route.snapshot.params.uid;
     this.experienceService.getExperiences(this.id)
       .subscribe(data => {
-          console.log("Experiences details backend!");
-          console.log(data);
           this.experiences = data;
           for(let i=0; i<data.length; i++) {
             this.experiences[i].startDate =
@@ -31,11 +29,8 @@ export class ExperienceListComponent implements OnInit {
             this.experiences[i].endDate =
               this.datepipe.transform(data[i].endDate, 'yyyy-MM-dd');
           }
-          console.log("angular experiences");
-          console.log(this.experiences);
         },
         error => {
-          console.log("Could not load experiences!");
           console.log(error);
         });
   }

@@ -21,14 +21,9 @@ export class SkillsListComponent implements OnInit {
     let id = this.route.snapshot.params.uid;
     this.skillService.getSkills(id)
       .subscribe(data => {
-          console.log("Skill details backend!");
-          console.log(data);
           this.skills = data;
-          console.log("angular skills");
-          console.log(this.skills);
         },
         error => {
-          console.log("Could not load skills!");
           console.log(error);
         });
   }

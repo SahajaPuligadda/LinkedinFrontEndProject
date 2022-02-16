@@ -35,24 +35,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
     this.user = new User(this.loginForm.value['email'],
       this.loginForm.value['password']);
     this.userValidationService.validateUser(this.user)
       .subscribe(data => {
-        console.log("Logged in properly!");
-        console.log(data);
-        console.log(data.id);
         this.uid = data.id;
         this.error = true;
         this.message = "Logged in Successfully!";
-        // window.alert("Logged in successfully!");
         this.router.navigate(['../' + data.id + '/home'],
           {relativeTo: this.route});
       },
         error => {
         this.error = true;
-        console.log("Access Denied!");
         console.log(error);
         this.message = "Invalid Credentials";
         });

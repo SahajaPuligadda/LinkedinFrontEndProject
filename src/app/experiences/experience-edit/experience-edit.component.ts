@@ -45,8 +45,6 @@ export class ExperienceEditComponent implements OnInit {
       let eid = this.route.snapshot.params.id;
       this.experienceService.updateExperience(uid, eid, this.exp)
         .subscribe(data => {
-            console.log("Updated experience successfully!");
-            console.log(data);
             this.error = true;
             this.message = "Updated Experience Successfully!";
             window.alert("Updated Experience Successfully!");
@@ -54,7 +52,6 @@ export class ExperienceEditComponent implements OnInit {
           },
           error => {
             this.error = true;
-            console.log("Could not update experience!");
             console.log(error);
             this.message = "Could not update experience!";
           });
@@ -63,8 +60,6 @@ export class ExperienceEditComponent implements OnInit {
     else {
       this.experienceService.addExperience(uid, this.exp)
         .subscribe(data => {
-            console.log("Added experience successfully!");
-            console.log(data);
             this.error = true;
             this.message = "Added Experience Successfully!";
             window.alert("Added Experience Successfully!");
@@ -72,7 +67,6 @@ export class ExperienceEditComponent implements OnInit {
           },
           error => {
             this.error = true;
-            console.log("Could not add experience!");
             console.log(error);
             this.message = "Could not add experience!";
           });
@@ -107,8 +101,6 @@ export class ExperienceEditComponent implements OnInit {
       let eid = this.route.snapshot.params.id;
       this.experienceService.getExperience(uid, eid)
         .subscribe(data => {
-            console.log("Experience details backend for form!");
-            console.log(data);
             title = data.title;
             companyName = data.companyName;
             empType = data.empType;
@@ -133,7 +125,6 @@ export class ExperienceEditComponent implements OnInit {
               );
           },
           error => {
-            console.log("Could not load experience details!");
             console.log(error);
           });
     }

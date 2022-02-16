@@ -26,13 +26,9 @@ export class SkillNewComponent implements OnInit {
 
   onSubmit() {
     let uid = this.route.snapshot.params.uid;
-    console.log(this.newSkillForm.value);
     this.skill = new Skill(this.newSkillForm.value['name']);
     this.skillService.createSkill(uid, this.skill)
       .subscribe(data => {
-          console.log("Created Skill successfully!");
-          console.log(data);
-          console.log(data.id);
           this.error = true;
           this.message = "Added Skill Successfully!";
           window.alert("Added Skill Successfully!");
@@ -40,7 +36,6 @@ export class SkillNewComponent implements OnInit {
         },
         error => {
           this.error = true;
-          console.log("Could not add skill!");
           console.log(error);
           this.message = "Skill already exists!";
         });

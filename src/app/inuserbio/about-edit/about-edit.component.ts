@@ -29,9 +29,6 @@ export class AboutEditComponent implements OnInit {
     this.about = this.editAboutForm.value['about'];
     this.bioService.updateAbout(uid, this.about)
       .subscribe(data => {
-          console.log("Updated about successfully!");
-          console.log(data);
-          console.log(data.id);
           this.error = true;
           this.message = "Updated About Successfully!";
           window.alert("Updated About successfully!");
@@ -39,7 +36,6 @@ export class AboutEditComponent implements OnInit {
         },
         error => {
           this.error = true;
-          console.log("Could not update about!");
           console.log(error);
           this.message = "Could not update about!";
         });
@@ -65,7 +61,6 @@ export class AboutEditComponent implements OnInit {
           });
         },
         error => {
-          console.log("Could not load profile details!");
           console.log(error);
         });
     this.editAboutForm = new FormGroup({

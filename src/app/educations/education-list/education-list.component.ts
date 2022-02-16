@@ -22,8 +22,6 @@ export class EducationListComponent implements OnInit {
     this.id = this.route.snapshot.params.uid;
     this.educationService.getEducations(this.id)
       .subscribe(data => {
-          console.log("Education details backend!");
-          console.log(data);
           this.educations = data;
           for(let i=0; i<data.length; i++) {
             this.educations[i].startDate =
@@ -31,11 +29,8 @@ export class EducationListComponent implements OnInit {
             this.educations[i].endDate =
               this.datepipe.transform(data[i].endDate, 'yyyy-MM-dd');
           }
-          console.log("angular educations");
-          console.log(this.educations);
         },
         error => {
-          console.log("Could not load educations!");
           console.log(error);
         });
   }

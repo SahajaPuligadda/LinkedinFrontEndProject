@@ -21,9 +21,6 @@ export class ExperienceItemComponent implements OnInit {
 
   onClickExperience() {
     // :uid/experiences/:id
-    console.log("index: " + this.index);
-    console.log("uid: " + this.uid);
-    console.log(this.router.url);
     this.router.navigate(['../experiences/' + this.index], {relativeTo: this.route});
   }
 

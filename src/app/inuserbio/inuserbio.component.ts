@@ -23,14 +23,9 @@ export class InuserbioComponent implements OnInit {
     let id = this.route.snapshot.params.uid;
     this.bioService.getBio(id)
       .subscribe(data => {
-          console.log("Profile details backend!");
-          console.log(data);
           this.bio = data;
-          console.log("angular bio");
-          console.log(this.bio);
         },
         error => {
-          console.log("Could not load profile details!");
           console.log(error);
         });
   }

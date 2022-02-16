@@ -8,7 +8,6 @@ import {Bio} from "../bio.model";
 //   return (control: AbstractControl): { [key: string]: boolean } | null => {
 //     let image = new Image();
 //     image.src = url;
-//     // console.log(control.value);
 //     if (image.width > 0) {
 //       console.log("image exists");
 //       return { 'imageValid': true };
@@ -47,9 +46,6 @@ export class BioEditComponent implements OnInit {
       this.editBioForm.value['location'], this.editBioForm.value['photo'], '');
     this.bioService.updateBio(uid, this.bio)
       .subscribe(data => {
-          console.log("Updated bio successfully!");
-          console.log(data);
-          console.log(data.id);
           this.error = true;
           this.message = "Updated Bio Successfully!";
           window.alert("Updated bio successfully!");
@@ -57,7 +53,6 @@ export class BioEditComponent implements OnInit {
         },
         error => {
           this.error = true;
-          console.log("Could not update bio!");
           console.log(error);
           this.message = "Could not update bio!";
         });
@@ -82,8 +77,6 @@ export class BioEditComponent implements OnInit {
 
     this.bioService.getBio(uid)
       .subscribe(data => {
-          // console.log("Profile details backend!");
-          // console.log(data);
           name = data.name;
           tagline = data.tagline;
           workplace = data.workplace;
@@ -98,7 +91,6 @@ export class BioEditComponent implements OnInit {
           });
         },
         error => {
-          console.log("Could not load profile details!");
           console.log(error);
         });
 

@@ -26,14 +26,11 @@ export class SkillEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.route.snapshot.params);
     let uid = this.route.snapshot.params.uid;
     let sid = this.route.snapshot.params.id;
     this.skill = new Skill(this.editSkillForm.value['name']);
     this.skillService.updateSkill(uid, sid, this.skill)
       .subscribe(data => {
-          console.log("Updated Skill successfully!");
-          console.log(data);
           this.error = true;
           this.message = "Updated Skill Successfully!";
           window.alert("Updated Skill Successfully!");
@@ -41,7 +38,6 @@ export class SkillEditComponent implements OnInit {
         },
         error => {
           this.error = true;
-          console.log("Could not update skill!");
           console.log(error);
           this.message = "Could not update skill!";
         });
@@ -63,15 +59,12 @@ export class SkillEditComponent implements OnInit {
 
     this.skillService.getSkill(uid, sid)
       .subscribe(data => {
-          console.log("Skill details backend for form!");
-          console.log(data);
           name = data.skillName;
           this.editSkillForm = new FormGroup({
             'name': new FormControl(name, [Validators.required])
           });
         },
         error => {
-          console.log("Could not load skill details!");
           console.log(error);
         });
 

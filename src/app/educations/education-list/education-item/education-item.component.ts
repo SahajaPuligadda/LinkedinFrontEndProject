@@ -21,9 +21,6 @@ export class EducationItemComponent implements OnInit {
 
   onClickEducation() {
   // :uid/educations/:id
-    console.log("index: " + this.index);
-    console.log("uid: " + this.uid);
-    console.log(this.router.url);
     this.router.navigate(['../educations/' + this.index], {relativeTo: this.route});
   }
 

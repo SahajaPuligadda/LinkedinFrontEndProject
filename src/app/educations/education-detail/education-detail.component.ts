@@ -23,23 +23,15 @@ export class EducationDetailComponent implements OnInit {
         let temp = this.router.url.split('/');
         let uid = +temp[1];
         let eid = this.route.snapshot.params.id;
-        // console.log(this.route.snapshot.params);
-        console.log("uid: " + uid);
-        console.log("eid: " + eid);
         this.educationService.getEducation(uid, eid)
           .subscribe(data => {
-              console.log("Single Education details backend!");
-              console.log(data);
               this.edu = data;
               this.edu.startDate =
                 this.datepipe.transform(data.startDate, 'yyyy-MM-dd');
               this.edu.endDate =
                 this.datepipe.transform(data.endDate, 'yyyy-MM-dd');
-              console.log("angular single education");
-              console.log(this.edu);
             },
             error => {
-              console.log("Could not load single education!");
               console.log(error);
             });
       }
@@ -60,18 +52,12 @@ export class EducationDetailComponent implements OnInit {
       let temp = this.router.url.split('/');
       let uid = +temp[1];
       let eid = this.route.snapshot.params.id;
-      //console.log(this.router.url);
-      console.log("uid: " + uid);
-      console.log("eid: " + eid);
       this.educationService.deleteEducation(uid, eid)
         .subscribe(data => {
-            console.log("Deleted Education successfully!");
-            console.log(data);
             window.alert("Deleted Education successfully!");
             this.router.navigateByUrl("/" + uid + "/home");
           },
           error => {
-            console.log("Could not delete education!");
             console.log(error);
           });
     }

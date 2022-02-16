@@ -35,19 +35,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
     this.name = this.registerForm.value['name'];
     this.email = this.registerForm.value['email'];
     this.password = this.registerForm.value['password'];
     this.userValidationService.registerUser(this.email, this.password, this.name)
       .subscribe(data => {
           this.error = true;
-          console.log("User is registered");
           this.message = "User is registered successfully! Login to your account!";
         },
         error => {
           this.error = true;
-          console.log("Could not register. Account already exists!");
           this.message = "Account already exists! Try to login to your account!";
         });
     this.registerForm.reset();

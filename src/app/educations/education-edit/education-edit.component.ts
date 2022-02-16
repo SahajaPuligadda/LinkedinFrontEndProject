@@ -45,8 +45,6 @@ export class EducationEditComponent implements OnInit {
       let eid = this.route.snapshot.params.id;
       this.educationService.updateEducation(uid, eid, this.edu)
         .subscribe(data => {
-            console.log("Updated education successfully!");
-            console.log(data);
             this.error = true;
             this.message = "Updated Education Successfully!";
             window.alert("Updated Education Successfully!");
@@ -54,7 +52,6 @@ export class EducationEditComponent implements OnInit {
           },
           error => {
             this.error = true;
-            console.log("Could not update education!");
             console.log(error);
             this.message = "Could not update education!";
           });
@@ -63,8 +60,6 @@ export class EducationEditComponent implements OnInit {
     else {
       this.educationService.addEducation(uid, this.edu)
         .subscribe(data => {
-            console.log("Added education successfully!");
-            console.log(data);
             this.error = true;
             this.message = "Added Education Successfully!";
             window.alert("Added Education Successfully!");
@@ -72,7 +67,6 @@ export class EducationEditComponent implements OnInit {
           },
           error => {
             this.error = true;
-            console.log("Could not add education!");
             console.log(error);
             this.message = "Could not add education!";
           });
@@ -107,8 +101,6 @@ export class EducationEditComponent implements OnInit {
       let eid = this.route.snapshot.params.id;
       this.educationService.getEducation(uid, eid)
         .subscribe(data => {
-            console.log("Education details backend for form!");
-            console.log(data);
             school = data.school;
             degree = data.degree;
             field = data.field;
@@ -133,7 +125,6 @@ export class EducationEditComponent implements OnInit {
               );
           },
           error => {
-            console.log("Could not load education details!");
             console.log(error);
           });
     }
