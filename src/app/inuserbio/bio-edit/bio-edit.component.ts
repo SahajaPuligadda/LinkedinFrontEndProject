@@ -4,20 +4,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {BioService} from "../bio.service";
 import {Bio} from "../bio.model";
 
-// function checkImageValidator(url: string): ValidatorFn {
-//   return (control: AbstractControl): { [key: string]: boolean } | null => {
-//     let image = new Image();
-//     image.src = url;
-//     if (image.width > 0) {
-//       console.log("image exists");
-//       return { 'imageValid': true };
-//     } else {
-//       console.log("image doesn't exist");
-//     }
-//     return null;
-//   };
-// }
-
 @Component({
   selector: 'app-bio-edit',
   templateUrl: './bio-edit.component.html',

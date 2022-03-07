@@ -30,7 +30,6 @@ export class ExperienceDetailComponent implements OnInit {
                 this.datepipe.transform(data.startDate, 'yyyy-MM-dd');
               this.exp.endDate =
                 this.datepipe.transform(data.endDate, 'yyyy-MM-dd');
-              // document.getElementById("experience_details").scrollIntoView({behavior: 'smooth'});
             },
             error => {
               console.log(error);

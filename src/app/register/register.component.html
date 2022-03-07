@@ -65,11 +65,6 @@
               formControlName="confirmPassword"
               class="form-control"
               name="confirmPassword">
-<!--            <span-->
-<!--              *ngIf="!registerForm.get('confirmPassword').valid &&-->
-<!--              registerForm.get('confirmPassword').touched"-->
-<!--              class="help-block">-->
-<!--            Confirm Password is required!</span>-->
             <span class="text-danger"
                   *ngIf="registerForm.get('confirmPassword').touched
                   && registerForm.get('confirmPassword').errors?.passwordMismatch">

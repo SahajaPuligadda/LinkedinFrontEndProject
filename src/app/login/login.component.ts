@@ -12,7 +12,6 @@ import {User} from "../user.model";
 export class LoginComponent implements OnInit {
   @Output() uid: number;
 
-  // isLoginMode = true;
   loginForm: FormGroup;
   error: boolean;
   name: string;
