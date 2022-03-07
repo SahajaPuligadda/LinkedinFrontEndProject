@@ -10,7 +10,7 @@ import {UserValidationService} from "../user-validation.service";
 export class HeaderComponent implements OnInit {
   @Input() uid: number;
 
-  linkedinlogo = 'https://image.flaticon.com/icons/png/512/408/408703.png';
+  linkedinlogo = 'https://cdn-icons-png.flaticon.com/512/355/355994.png?w=900';
 
   constructor(private route: ActivatedRoute,
               private router: Router,
